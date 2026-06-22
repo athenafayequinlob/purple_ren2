@@ -1,0 +1,2521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Purple Ren — Professional stairwell cleaning and property services in Copenhagen. Family-owned, AMU certified. CVR 45507548.">
+  <title>Purple Ren — Stairwell Cleaning & Property Services, Copenhagen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;1,9..40,300&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --cream: #F5F3FF;
+      --cream-deep: #EDE8FD;
+      --ink: #1A1A2E;
+      --ink-light: #6B5F8A;
+      --accent: #7B2FBE;
+      --accent-lt: #9B59D0;
+      --dark: #12122A;
+      --white: #FDFAFF;
+
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-silk: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+      --pad-x: clamp(1.5rem, 4vw, 3rem);
+      --max-w: 1400px;
+      --section-py: clamp(5rem, 10vw, 9rem);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 140px 140px;
+    }
+
+    /* ─── Navigation ───────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1.5rem var(--pad-x);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(245, 243, 255, 0.85);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border-bottom: 1px solid rgba(123, 47, 190, 0.08);
+      transition: padding 0.45s var(--ease-spring);
+    }
+
+    nav.scrolled {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .nav-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s var(--ease-silk);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.4s var(--ease-spring);
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--accent);
+      padding: 0.75rem 1.75rem;
+      text-decoration: none;
+      transition: background 0.3s var(--ease-silk);
+    }
+
+    .nav-cta:hover {
+      background: var(--ink);
+    }
+
+    /* ─── Hero ─────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100dvh;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 var(--pad-x);
+      padding-top: 10vh;
+      position: relative;
+      z-index: 10;
+      max-width: 700px;
+      height: 100%;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.8s var(--ease-spring) 0.2s forwards;
+    }
+
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: clamp(3.5rem, 5.5vw, 7rem);
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 0;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s var(--ease-spring) 0.35s forwards;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      font-weight: 400;
+      line-height: 1.8;
+      color: var(--ink);
+      max-width: 42ch;
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.9s var(--ease-spring) 0.5s forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.9s var(--ease-spring) 0.65s forwards;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--accent);
+      padding: 1rem 2rem;
+      text-decoration: none;
+      transition: background 0.35s var(--ease-spring), transform 0.35s var(--ease-spring);
+    }
+
+    .btn-primary:hover {
+      background: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    .btn-primary .icon-ring {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.5rem;
+      height: 1.5rem;
+      border: 1px solid rgba(253, 250, 255, 0.3);
+      border-radius: 50%;
+    }
+
+    .btn-ghost {
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 2px solid currentColor;
+      padding-bottom: 3px;
+      transition: color 0.3s var(--ease-silk);
+    }
+
+    .btn-ghost:hover {
+      color: var(--accent);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      margin-top: 4rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid rgba(123, 47, 190, 0.12);
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.9s var(--ease-spring) 0.8s forwards;
+    }
+
+    .stat-num {
+      display: block;
+      font-family: var(--serif);
+      font-size: 2.25rem;
+      font-weight: 300;
+      color: var(--ink);
+    }
+
+    .stat-label {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-top: 0.25rem;
+    }
+
+
+    .hero-right {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+
+
+    .hero-visual {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 39%;
+      display: block;
+    }
+
+    /* To add a photo: replace .hero-visual div with:
+       <img src="photos/hero.jpg" alt="Professional stairwell cleaning" class="hero-img"> */
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.06);
+      animation: zoomIn 1.6s var(--ease-spring) 0.1s forwards;
+    }
+
+    .hero-caption {
+      display: none !important;
+      visibility: hidden !important;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes zoomIn {
+      to {
+        transform: scale(1);
+      }
+    }
+
+    /* ─── Ticker ────────────────────────────────────────────── */
+    .ticker {
+      background: var(--accent);
+      padding: 0.875rem 0;
+      overflow: hidden;
+    }
+
+    .ticker-track {
+      display: flex;
+      animation: marquee 35s linear infinite;
+      white-space: nowrap;
+    }
+
+    .ticker-item {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(253, 250, 255, 0.55);
+      padding: 0 2.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .ticker-dot {
+      width: 3px;
+      height: 3px;
+      background: rgba(253, 250, 255, 0.4);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* ─── Section tag ───────────────────────────────────────── */
+    .section-tag {
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-tag::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: currentColor;
+    }
+
+    /* ─── Philosophy ────────────────────────────────────────── */
+    .philosophy {
+      padding: var(--section-py) var(--pad-x);
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .phil-left {
+      padding-top: 0.4rem;
+    }
+
+    .phil-right blockquote {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3.5vw, 3.25rem);
+      font-weight: 300;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 2.5rem;
+    }
+
+    .phil-right blockquote em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .phil-right p {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--ink-light);
+      max-width: 58ch;
+      margin-bottom: 1.25rem;
+    }
+
+    .phil-signature {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--ink);
+      margin-top: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .phil-signature::before {
+      content: '';
+      display: block;
+      width: 1.5rem;
+      height: 1px;
+      background: var(--ink-light);
+    }
+
+    /* ─── Gallery bento ─────────────────────────────────────── */
+    .work {
+      background: var(--cream-deep);
+      padding: var(--section-py) var(--pad-x);
+    }
+
+    .work-head {
+      max-width: var(--max-w);
+      margin: 0 auto 4rem;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .work-title {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 5vw, 5rem);
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .work-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .work-note {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      padding-bottom: 0.5rem;
+    }
+
+    .bento {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 0.75rem;
+    }
+
+    .bento-row2 {
+      max-width: var(--max-w);
+      margin: 0.75rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+
+    .g-card {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .bento .g-card:nth-child(1) {
+      grid-column: span 6;
+      min-height: 520px;
+    }
+
+    .bento .g-card:nth-child(2) {
+      grid-column: span 6;
+      min-height: 520px;
+    }
+
+    .bento .g-card:nth-child(3) {
+      grid-column: span 4;
+      min-height: 380px;
+    }
+
+    .bento .g-card:nth-child(4) {
+      grid-column: span 4;
+      min-height: 380px;
+    }
+
+    .bento .g-card:nth-child(5) {
+      grid-column: span 4;
+      min-height: 380px;
+    }
+
+    .bento-row2 .g-card {
+      min-height: 260px;
+    }
+
+    .g-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.85s var(--ease-spring), filter 0.5s var(--ease-silk);
+    }
+
+    .g-card:hover .g-bg {
+      transform: scale(1.06);
+      filter: brightness(0.7);
+    }
+
+    .g-bg-1 {
+      background: linear-gradient(150deg, #9B59D0 0%, #5A189A 55%, #12122A 100%);
+    }
+
+    .g-bg-2 {
+      background: linear-gradient(150deg, #7B2FBE 0%, #4A148C 100%);
+    }
+
+    .g-bg-3 {
+      background: linear-gradient(150deg, #6A11CB 0%, #2575FC 100%);
+    }
+
+    .g-bg-4 {
+      background: linear-gradient(150deg, #1A1A2E 0%, #7B2FBE 100%);
+    }
+
+    .g-bg-5 {
+      background: linear-gradient(150deg, #9B59D0 0%, #1A1A2E 100%);
+    }
+
+    .g-bg-6 {
+      background: linear-gradient(150deg, #7B2FBE 0%, #2E0854 100%);
+    }
+
+    .g-bg-7 {
+      background: linear-gradient(150deg, #5A189A 0%, #0D0D1A 100%);
+    }
+
+    .g-bg-8 {
+      background: linear-gradient(150deg, #4A148C 0%, #9B59D0 100%);
+    }
+
+    /* To add a photo: inside each .g-card add an <img> with these styles */
+    .g-photo-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .g-veil {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(18, 18, 42, 0.88) 0%, transparent 55%);
+      opacity: 0.65;
+      transition: opacity 0.5s var(--ease-silk);
+    }
+
+    .g-card:hover .g-veil {
+      opacity: 1;
+    }
+
+    .g-info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2rem;
+    }
+
+    .g-cat {
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(224, 190, 255, 0.75);
+      margin-bottom: 0.35rem;
+    }
+
+    .g-name {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--white);
+    }
+
+    /* ─── Services ──────────────────────────────────────────── */
+    .services {
+      padding: var(--section-py) var(--pad-x);
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .svc-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      margin-bottom: 5rem;
+      align-items: end;
+    }
+
+    .svc-title {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 4vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      margin-top: 1.5rem;
+    }
+
+    .svc-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .svc-desc {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--ink-light);
+      max-width: 52ch;
+    }
+
+    .svc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid rgba(123, 47, 190, 0.12);
+    }
+
+    .svc-item {
+      padding: 3rem 2.5rem;
+      border-right: 1px solid rgba(123, 47, 190, 0.12);
+      border-bottom: 1px solid rgba(123, 47, 190, 0.12);
+      transition: background 0.4s var(--ease-silk);
+    }
+
+    .svc-item:nth-child(3n) {
+      border-right: none;
+    }
+
+    .svc-item:nth-child(4),
+    .svc-item:nth-child(5),
+    .svc-item:nth-child(6) {
+      border-bottom: none;
+    }
+
+    .svc-item:hover {
+      background: var(--cream-deep);
+    }
+
+    .svc-num {
+      display: block;
+      font-family: var(--serif);
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: rgba(123, 47, 190, 0.08);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      transition: color 0.4s var(--ease-silk);
+    }
+
+    .svc-item:hover .svc-num {
+      color: rgba(123, 47, 190, 0.16);
+    }
+
+    .svc-name {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 1rem;
+    }
+
+    .svc-text {
+      font-size: 0.875rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--ink-light);
+    }
+
+    .svc-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      margin-top: 1.5rem;
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: opacity 0.3s var(--ease-silk), transform 0.4s var(--ease-spring);
+    }
+
+    .svc-item:hover .svc-link {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ─── Method ────────────────────────────────────────────── */
+    .method {
+      background: var(--ink);
+      padding: var(--section-py) var(--pad-x);
+    }
+
+    .method-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .meth-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      margin-bottom: 5rem;
+      align-items: end;
+    }
+
+    .meth-title {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 4vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-top: 1.5rem;
+    }
+
+    .meth-title em {
+      font-style: italic;
+      color: var(--accent-lt);
+    }
+
+    .meth-desc {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(253, 250, 255, 0.45);
+      max-width: 52ch;
+    }
+
+    .meth-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid rgba(253, 250, 255, 0.07);
+    }
+
+    .meth-step {
+      padding: 3rem 2rem;
+      border-right: 1px solid rgba(253, 250, 255, 0.07);
+      border-bottom: 1px solid rgba(253, 250, 255, 0.07);
+    }
+
+    .meth-step:nth-child(3n) {
+      border-right: none;
+    }
+
+    .meth-step:nth-child(4),
+    .meth-step:nth-child(5),
+    .meth-step:nth-child(6) {
+      border-bottom: none;
+    }
+
+    .step-phase {
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-lt);
+      margin-bottom: 2rem;
+    }
+
+    .step-title {
+      font-family: var(--serif);
+      font-size: 1.75rem;
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .step-body {
+      font-size: 0.875rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(253, 250, 255, 0.4);
+    }
+
+    /* ─── About / Why Choose ────────────────────────────────── */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 80dvh;
+    }
+
+    .about-visual {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(150deg, #9B59D0 0%, #5A189A 40%, #1A1A2E 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 3rem;
+    }
+
+    /* To add a photo: add <img src="photos/team.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"> inside .about-visual */
+    .about-visual-label {
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(253, 250, 255, 0.35);
+    }
+
+    .about-content {
+      background: var(--cream-deep);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem var(--pad-x);
+    }
+
+    .about-title {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 4vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 1.5rem 0;
+    }
+
+    .about-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .about-body {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--ink-light);
+      max-width: 52ch;
+      margin-bottom: 1.25rem;
+    }
+
+    .about-reasons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.85rem 2rem;
+      margin-top: 3rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(123, 47, 190, 0.12);
+    }
+
+    .reason {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+
+    .reason-dot {
+      width: 4px;
+      height: 4px;
+      min-width: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+      margin-top: 0.55rem;
+    }
+
+    .reason-text {
+      font-size: 0.82rem;
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--ink-light);
+    }
+
+    /* ─── Service Areas ─────────────────────────────────────── */
+    .areas-section {
+      background: var(--ink);
+      padding: var(--section-py) var(--pad-x);
+      text-align: center;
+    }
+
+    .areas-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .section-tag-light {
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(253, 250, 255, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-tag-light::before {
+      content: '';
+      display: block;
+      width: 2rem;
+      height: 1px;
+      background: rgba(253, 250, 255, 0.3);
+    }
+
+    .areas-title {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 4vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin: 1.5rem 0 3rem;
+    }
+
+    .areas-title em {
+      font-style: italic;
+      color: var(--accent-lt);
+    }
+
+    .areas-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .area-pill {
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(253, 250, 255, 0.5);
+      border: 1px solid rgba(253, 250, 255, 0.1);
+      padding: 0.75rem 1.5rem;
+      transition: background 0.3s var(--ease-silk), color 0.3s var(--ease-silk), border-color 0.3s var(--ease-silk);
+    }
+
+    .area-pill:hover {
+      background: var(--accent);
+      color: var(--white);
+      border-color: var(--accent);
+    }
+
+    .areas-note {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(253, 250, 255, 0.45);
+      max-width: 54ch;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .areas-note strong {
+      font-weight: 400;
+      color: rgba(253, 250, 255, 0.75);
+    }
+
+    /* ─── Business Hours ────────────────────────────────────── */
+    .hours-section {
+      padding: 5rem var(--pad-x);
+      background: var(--cream);
+      border-bottom: 1px solid rgba(123, 47, 190, 0.08);
+    }
+
+    .hours-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 4rem;
+    }
+
+    .hours-left h3 {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-top: 1.5rem;
+    }
+
+    .hours-left h3 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hours-note {
+      font-size: 0.875rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--ink-light);
+      margin-top: 1rem;
+      max-width: 38ch;
+    }
+
+    .hours-chips {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hour-chip {
+      text-align: center;
+      padding: 1.5rem 2rem;
+      border: 1px solid rgba(123, 47, 190, 0.15);
+      background: var(--cream-deep);
+    }
+
+    .chip-day {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--ink);
+      display: block;
+    }
+
+    .chip-time {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-top: 0.35rem;
+    }
+
+    /* ─── FAQ ───────────────────────────────────────────────── */
+    .faq-section {
+      padding: var(--section-py) var(--pad-x);
+      background: var(--cream);
+    }
+
+    .faq-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .faq-left {
+      padding-top: 0.4rem;
+    }
+
+    .faq-headline {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 4vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-top: 1.5rem;
+    }
+
+    .faq-headline em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .faq-list {
+      list-style: none;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(123, 47, 190, 0.12);
+    }
+
+    .faq-btn {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 1.75rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      cursor: pointer;
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--ink);
+      text-align: left;
+      transition: color 0.3s var(--ease-silk);
+    }
+
+    .faq-btn:hover {
+      color: var(--accent);
+    }
+
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border: 1px solid rgba(123, 47, 190, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s var(--ease-silk), border-color 0.3s var(--ease-silk);
+      flex-shrink: 0;
+    }
+
+    .faq-btn:hover .faq-icon {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .faq-btn:hover .faq-icon svg path {
+      stroke: var(--white);
+    }
+
+    .faq-icon svg {
+      transition: transform 0.4s var(--ease-spring);
+    }
+
+    .faq-item.open .faq-icon {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .faq-item.open .faq-icon svg {
+      transform: rotate(45deg);
+    }
+
+    .faq-item.open .faq-icon svg path {
+      stroke: var(--white);
+    }
+
+    .faq-item.open .faq-btn {
+      color: var(--accent);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s var(--ease-spring);
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-answer p {
+      font-size: 0.9rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--ink-light);
+      padding-bottom: 1.75rem;
+    }
+
+    /* ─── Quote form ────────────────────────────────────────── */
+    .quote-section {
+      background: var(--accent);
+      padding: var(--section-py) var(--pad-x);
+    }
+
+    .quote-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .q-eye {
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(253, 250, 255, 0.5);
+      margin-bottom: 1.5rem;
+    }
+
+    .q-title {
+      font-family: var(--serif);
+      font-size: clamp(2.5rem, 4vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+
+    .q-title em {
+      font-style: italic;
+    }
+
+    .q-sub {
+      font-size: 1rem;
+      font-weight: 300;
+      line-height: 1.8;
+      color: rgba(253, 250, 255, 0.65);
+      max-width: 46ch;
+    }
+
+    .q-contact {
+      margin-top: 3rem;
+      padding-top: 3rem;
+      border-top: 1px solid rgba(253, 250, 255, 0.15);
+    }
+
+    .q-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.875rem;
+    }
+
+    .q-contact-label {
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(253, 250, 255, 0.38);
+      min-width: 60px;
+    }
+
+    .q-contact-val {
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: rgba(253, 250, 255, 0.82);
+    }
+
+    .q-contact-val a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(253, 250, 255, 0.25);
+      padding-bottom: 1px;
+      transition: border-color 0.3s;
+    }
+
+    .q-contact-val a:hover {
+      border-color: rgba(253, 250, 255, 0.7);
+    }
+
+    .quote-form {
+      background: var(--cream);
+      padding: 3rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(123, 47, 190, 0.2);
+      padding: 0.625rem 0;
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: var(--ink);
+      outline: none;
+      transition: border-color 0.3s var(--ease-silk);
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .form-input:focus,
+    .form-select:focus,
+    .form-textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: rgba(107, 95, 138, 0.45);
+    }
+
+    .form-textarea {
+      resize: none;
+      min-height: 80px;
+    }
+
+    .form-checks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+    }
+
+    .form-check-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--ink-light);
+      cursor: pointer;
+    }
+
+    .form-check-label input {
+      accent-color: var(--accent);
+    }
+
+    .form-checks-group {
+      margin-top: 0.5rem;
+    }
+
+    .form-checks-category {
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-submit {
+      width: 100%;
+      background: var(--accent);
+      border: none;
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 1.25rem 2rem;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background 0.3s var(--ease-silk), transform 0.3s var(--ease-spring);
+    }
+
+    .form-submit:hover {
+      background: var(--ink);
+      transform: translateY(-2px);
+    }
+
+    /* ─── Footer ────────────────────────────────────────────── */
+    footer {
+      background: var(--dark);
+      padding: 4rem var(--pad-x) 2.5rem;
+    }
+
+    .foot-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+
+    .foot-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 4rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid rgba(253, 250, 255, 0.05);
+    }
+
+    .foot-brand {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .foot-brand-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--accent-lt);
+      border-radius: 50%;
+    }
+
+    .foot-tagline {
+      font-size: 0.875rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: rgba(253, 250, 255, 0.28);
+      max-width: 32ch;
+    }
+
+    .foot-col-title {
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(253, 250, 255, 0.24);
+      margin-bottom: 1.5rem;
+    }
+
+    .foot-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .foot-links a {
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: rgba(253, 250, 255, 0.45);
+      text-decoration: none;
+      transition: color 0.3s var(--ease-silk);
+    }
+
+    .foot-links a:hover {
+      color: var(--accent-lt);
+    }
+
+    .foot-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .foot-copy {
+      font-size: 0.68rem;
+      font-weight: 300;
+      color: rgba(253, 250, 255, 0.2);
+      letter-spacing: 0.05em;
+    }
+
+    .foot-legal {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .foot-legal a {
+      font-size: 0.68rem;
+      font-weight: 300;
+      color: rgba(253, 250, 255, 0.2);
+      text-decoration: none;
+      transition: color 0.3s var(--ease-silk);
+    }
+
+    .foot-legal a:hover {
+      color: rgba(253, 250, 255, 0.45);
+    }
+
+    /* ─── Scroll reveal ─────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      filter: blur(4px);
+      transition:
+        opacity 0.9s var(--ease-spring),
+        transform 0.9s var(--ease-spring),
+        filter 0.9s var(--ease-spring);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    .d1 {
+      transition-delay: 0.10s;
+    }
+
+    .d2 {
+      transition-delay: 0.22s;
+    }
+
+    .d3 {
+      transition-delay: 0.34s;
+    }
+
+    .d4 {
+      transition-delay: 0.48s;
+    }
+
+    /* ─── Responsive ─────────────────────────────────────────  */
+    @media (max-width: 1060px) {
+      .hero-left {
+        max-width: 90vw;
+        padding: 3rem var(--pad-x);
+      }
+
+      .philosophy {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .svc-header,
+      .meth-header {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .svc-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .svc-item:nth-child(3n) {
+        border-right: 1px solid rgba(123, 47, 190, 0.12);
+      }
+
+      .svc-item:nth-child(2n) {
+        border-right: none;
+      }
+
+      .svc-item:nth-child(4),
+      .svc-item:nth-child(5),
+      .svc-item:nth-child(6) {
+        border-bottom: 1px solid rgba(123, 47, 190, 0.12);
+      }
+
+      .svc-item:nth-child(5),
+      .svc-item:nth-child(6) {
+        border-bottom: none;
+      }
+
+      .meth-steps {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .meth-step:nth-child(2n) {
+        border-right: none;
+      }
+
+      .meth-step:nth-child(4),
+      .meth-step:nth-child(5),
+      .meth-step:nth-child(6) {
+        border-bottom: 1px solid rgba(253, 250, 255, 0.07);
+      }
+
+      .meth-step:nth-child(5),
+      .meth-step:nth-child(6) {
+        border-bottom: none;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .about-visual {
+        min-height: 360px;
+      }
+
+      .faq-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .hours-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .quote-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .foot-top {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+
+      .bento .g-card:nth-child(1) {
+        grid-column: span 12;
+        min-height: 380px;
+      }
+
+      .bento .g-card:nth-child(2),
+      .bento .g-card:nth-child(3) {
+        grid-column: span 6;
+      }
+
+      .bento .g-card:nth-child(4),
+      .bento .g-card:nth-child(5) {
+        grid-column: span 6;
+      }
+
+      .bento-row2 {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .bento-row2 .g-card:last-child {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+
+      .svc-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .svc-item {
+        border-right: none !important;
+        border-bottom: 1px solid rgba(123, 47, 190, 0.12) !important;
+      }
+
+      .svc-item:last-child {
+        border-bottom: none !important;
+      }
+
+      .meth-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .meth-step {
+        border-right: none !important;
+        border-bottom: 1px solid rgba(253, 250, 255, 0.07) !important;
+      }
+
+      .meth-step:last-child {
+        border-bottom: none !important;
+      }
+
+      .foot-top {
+        grid-template-columns: 1fr;
+      }
+
+      .bento .g-card:nth-child(n) {
+        grid-column: span 12;
+      }
+
+      .bento-row2 {
+        grid-template-columns: 1fr;
+      }
+
+      .bento-row2 .g-card:last-child {
+        grid-column: span 1;
+      }
+
+      .work-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+
+      .about-reasons {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hours-chips {
+        flex-direction: column;
+      }
+
+      .quote-form {
+        padding: 2rem 1.5rem;
+      }
+
+      .foot-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">
+      <span class="nav-dot" aria-hidden="true"></span>
+      Purple Ren
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#method">Method</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#quote" class="nav-cta">Get a Free Quote</a>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-left">
+      <span class="hero-eyebrow">Family-Owned &mdash; Copenhagen, Denmark</span>
+      <h1 class="hero-headline">
+        Your property,<br><em>perfectly</em><br>cared for.
+      </h1>
+      <p class="hero-sub">
+        Professional stairwell cleaning and property services &mdash; delivered by the same trusted husband and wife
+        team, every single visit.
+      </p>
+      <div class="hero-actions">
+        <a href="#quote" class="btn-primary">
+          Request a Free Quote
+          <span class="icon-ring" aria-hidden="true">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+              <path d="M2 8L8 2M8 2H3M8 2V7" stroke="currentColor" stroke-width="1.2" />
+            </svg>
+          </span>
+        </a>
+        <a href="#services" class="btn-ghost">Our Services</a>
+      </div>
+    </div>
+    <div class="hero-right" aria-hidden="true">
+      <video class="hero-visual" autoplay loop muted playsinline>
+        <source src="videos/mop_cleaning.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+
+  <!-- Ticker -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item">Trappevask <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Ejendomsservice <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Stairwell Cleaning <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Property Services <span class="ticker-dot"></span></span>
+      <span class="ticker-item">AMU Certified <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Family-Owned <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Copenhagen <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Commercial Equipment <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Trappevask <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Ejendomsservice <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Stairwell Cleaning <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Property Services <span class="ticker-dot"></span></span>
+      <span class="ticker-item">AMU Certified <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Family-Owned <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Copenhagen <span class="ticker-dot"></span></span>
+      <span class="ticker-item">Commercial Equipment <span class="ticker-dot"></span></span>
+    </div>
+  </div>
+
+  <!-- Philosophy -->
+  <section style="background: var(--cream);">
+    <div class="philosophy">
+      <div class="phil-left">
+        <span class="section-tag reveal">Our Promise</span>
+      </div>
+      <div class="phil-right">
+        <blockquote class="reveal d1">
+          &ldquo;Professional Cleaning. <em>Personal Responsibility.</em> Consistent Quality.&rdquo;
+        </blockquote>
+        <p class="reveal d2">
+          Purple Ren was built on a simple conviction: that a truly clean property requires people who take genuine
+          pride in their work. As a family-run business, we are the ones who show up &mdash; no sub-contractors, no
+          rotating staff, no compromises.
+        </p>
+        <p class="reveal d3">
+          With over 8 years of combined experience and an AMU professional cleaning certification, we bring method,
+          knowledge, and care to every stairwell, every yard, and every surface we touch. You always deal directly with
+          the owners.
+        </p>
+        <div class="phil-signature reveal d4">Purple Ren &mdash; Rengøring &amp; Ejendomsservice</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="work" id="gallery">
+    <div class="work-head">
+      <h2 class="work-title reveal">Our <em>Work</em></h2>
+      <span class="work-note reveal d1">Photos coming soon</span>
+    </div>
+    <div class="bento">
+      <div class="g-card reveal">
+        <video class="g-bg" autoplay loop muted playsinline style="object-position: center center;">
+          <source src="videos/vacuum_floor.mp4" type="video/mp4">
+        </video>
+        <div class="g-veil"></div>
+        <div class="g-info">
+          <div class="g-cat">Trappevask</div>
+          <div class="g-name">Stairwell Vacuuming</div>
+        </div>
+      </div>
+      <div class="g-card reveal d1">
+        <video class="g-bg" autoplay loop muted playsinline style="object-position: center center;">
+          <source src="videos/mop_floor.mp4" type="video/mp4">
+        </video>
+        <div class="g-veil"></div>
+        <div class="g-info">
+          <div class="g-cat">Rengøring</div>
+          <div class="g-name">Floor Washing &amp; Mopping</div>
+        </div>
+      </div>
+      <div class="g-card reveal d2">
+        <video class="g-bg" autoplay loop muted playsinline style="object-position: center center;">
+          <source src="videos/disinfecting_handrail.mp4" type="video/mp4">
+        </video>
+        <div class="g-veil"></div>
+        <div class="g-info">
+          <div class="g-cat">Desinfektion</div>
+          <div class="g-name">Surface Disinfection</div>
+        </div>
+      </div>
+      <div class="g-card reveal d3">
+        <div class="g-bg g-bg-4"></div>
+        <!-- <img src="photos/property-inspection.jpg" alt="Property Inspection" class="g-photo-img"> -->
+        <div class="g-veil"></div>
+        <div class="g-info">
+          <div class="g-cat">Ejendomsservice</div>
+          <div class="g-name">Property Inspection</div>
+        </div>
+      </div>
+      <div class="g-card reveal d4">
+        <div class="g-bg g-bg-5"></div>
+        <!-- <img src="photos/yard-outdoor.jpg" alt="Yards & Outdoor Areas" class="g-photo-img"> -->
+        <div class="g-veil"></div>
+        <div class="g-info">
+          <div class="g-cat">Udendørs</div>
+          <div class="g-name">Yards &amp; Outdoor Areas</div>
+        </div>
+      </div>
+    </div>
+    <div class="bento-row2">
+      <div class="g-card reveal">
+        <div class="g-bg g-bg-6"></div>
+        <!-- <img src="photos/laundry-room.jpg" alt="Laundry & Drying Rooms" class="g-photo-img"> -->
+        <div class="g-veil"></div>
+        <div class="g-info">
+          <div class="g-cat">Vaskeri</div>
+          <div class="g-name">Laundry &amp; Drying Rooms</div>
+        </div>
+      </div>
+      <div class="g-card reveal d1">
+        <div class="g-bg g-bg-7"></div>
+        <!-- <img src="photos/attic-basement.jpg" alt="Attics & Basements" class="g-photo-img"> -->
+        <div class="g-veil"></div>
+        <div class="g-info">
+          <div class="g-cat">Loft &amp; Kælder</div>
+          <div class="g-name">Attics &amp; Basements</div>
+        </div>
+      </div>
+      <div class="g-card reveal d2">
+        <div class="g-bg g-bg-8"></div>
+        <!-- <img src="photos/waste-bin.jpg" alt="Waste & Bin Areas" class="g-photo-img"> -->
+        <div class="g-veil"></div>
+        <div class="g-info">
+          <div class="g-cat">Affald</div>
+          <div class="g-name">Waste &amp; Bin Areas</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="services">
+      <div class="svc-header">
+        <div class="reveal">
+          <span class="section-tag">What We Offer</span>
+          <h2 class="svc-title">
+            Two services,<br><em>delivered</em><br>completely.
+          </h2>
+        </div>
+        <p class="svc-desc reveal d2">
+          Our work covers everything your property needs &mdash; from the stairwells your residents use every day to the
+          outdoor spaces and utility areas that keep a building running well. No cutting corners. No rushing.
+        </p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc-item reveal">
+          <span class="svc-num">01</span>
+          <div class="svc-name">Stairwell Vacuuming</div>
+          <p class="svc-text">Thorough vacuuming of all stairwells, landings, and communal areas using commercial-grade
+            equipment that reaches every corner and edge.</p>
+          <a href="#quote" class="svc-link">
+            Get a Quote
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.2" />
+            </svg>
+          </a>
+        </div>
+        <div class="svc-item reveal d1">
+          <span class="svc-num">02</span>
+          <div class="svc-name">Floor Washing</div>
+          <p class="svc-text">Professional mopping and floor washing with the correct cleaning product for each floor
+            type &mdash; stone, tile, or wood. Fresh microfiber mop pads, always.</p>
+          <a href="#quote" class="svc-link">
+            Get a Quote
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.2" />
+            </svg>
+          </a>
+        </div>
+        <div class="svc-item reveal d2">
+          <span class="svc-num">03</span>
+          <div class="svc-name">Surface Disinfection</div>
+          <p class="svc-text">Systematic disinfection of all high-touch points: handrails, light switches, door handles,
+            mailboxes, window sills, moldings, and cobweb removal.</p>
+          <a href="#quote" class="svc-link">
+            Get a Quote
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.2" />
+            </svg>
+          </a>
+        </div>
+        <div class="svc-item reveal">
+          <span class="svc-num">04</span>
+          <div class="svc-name">Property Inspections</div>
+          <p class="svc-text">Regular property walkthroughs, bin and waste checks, light bulb replacement, and written
+            maintenance reporting to keep your building in top condition.</p>
+          <a href="#quote" class="svc-link">
+            Get a Quote
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.2" />
+            </svg>
+          </a>
+        </div>
+        <div class="svc-item reveal d1">
+          <span class="svc-num">05</span>
+          <div class="svc-name">Outdoor &amp; Yard Care</div>
+          <p class="svc-text">Yard cleaning, gate and sidewalk maintenance, weed removal, and seasonal outdoor upkeep
+            &mdash; keeping your property&rsquo;s exterior presentable year-round.</p>
+          <a href="#quote" class="svc-link">
+            Get a Quote
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.2" />
+            </svg>
+          </a>
+        </div>
+        <div class="svc-item reveal d2">
+          <span class="svc-num">06</span>
+          <div class="svc-name">Utility Rooms</div>
+          <p class="svc-text">Laundry rooms, drying rooms, attics, and basements &mdash; the communal spaces that are
+            easy to neglect and transform a property when kept clean.</p>
+          <a href="#quote" class="svc-link">
+            Get a Quote
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+              <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.2" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Method -->
+  <section class="method" id="method">
+    <div class="method-inner">
+      <div class="meth-header">
+        <div class="reveal">
+          <span class="section-tag-light">How We Clean</span>
+          <h2 class="meth-title">
+            A six-step method,<br><em>every time,</em><br>no exceptions.
+          </h2>
+        </div>
+        <p class="meth-desc reveal d2">
+          Every visit follows the same structured, professional process &mdash; developed over 8 years of experience and
+          grounded in our AMU cleaning certification. Nothing is left to chance or personal interpretation.
+        </p>
+      </div>
+      <div class="meth-steps">
+        <div class="meth-step reveal">
+          <div class="step-phase">Step 01</div>
+          <div class="step-title">Property Inspection</div>
+          <p class="step-body">We begin every visit with a thorough walkthrough to assess the current condition of the
+            property and identify any areas requiring special attention before cleaning starts.</p>
+        </div>
+        <div class="meth-step reveal d1">
+          <div class="step-phase">Step 02</div>
+          <div class="step-title">Professional Vacuuming</div>
+          <p class="step-body">Commercial-grade equipment removes all loose dirt, dust, and debris from stairwells,
+            landings, and communal areas before any wet cleaning begins.</p>
+        </div>
+        <div class="meth-step reveal d2">
+          <div class="step-phase">Step 03</div>
+          <div class="step-title">Surface Disinfection</div>
+          <p class="step-body">All high-touch surfaces &mdash; handrails, switches, handles, mailboxes &mdash; are
+            systematically disinfected to eliminate bacteria and reduce cross-contamination.</p>
+        </div>
+        <div class="meth-step reveal">
+          <div class="step-phase">Step 04</div>
+          <div class="step-title">Systematic Floor Cleaning</div>
+          <p class="step-body">Each floor type receives the appropriate product and technique. Stone, tile, and wood are
+            each cleaned correctly &mdash; never damaged by a generic approach.</p>
+        </div>
+        <div class="meth-step reveal d1">
+          <div class="step-phase">Step 05</div>
+          <div class="step-title">Fresh Microfiber System</div>
+          <p class="step-body">We use 6&ndash;16 fresh microfiber mop pads per visit, changed regularly between areas so
+            dirt is always removed from surfaces &mdash; never just redistributed.</p>
+        </div>
+        <div class="meth-step reveal d2">
+          <div class="step-phase">Step 06</div>
+          <div class="step-title">Final Quality Check</div>
+          <p class="step-body">Before we leave, we review the completed work against our standards. If something
+            isn&rsquo;t right, we address it immediately. Consistent quality is our promise &mdash; not an aspiration.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About / Why Choose -->
+  <section class="about" id="about">
+    <div class="about-visual" aria-hidden="true">
+      <!-- To add a photo: add <img src="photos/team.jpg" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"> here -->
+      <span class="about-visual-label">Copenhagen, Denmark</span>
+    </div>
+    <div class="about-content">
+      <span class="section-tag reveal">Why Purple Ren</span>
+      <h2 class="about-title reveal d1">
+        Founded on<br><em>care</em><br>and consistency.
+      </h2>
+      <p class="about-body reveal d2">
+        We are a husband and wife cleaning team based in Copenhagen. We chose to build a family business &mdash; rather
+        than a cleaning agency &mdash; because we believe accountability starts with the people who actually do the
+        work.
+      </p>
+      <p class="about-body reveal d3">
+        We hold an AMU certification in cleaning materials and chemistry. We carry commercial-grade equipment and only
+        use fresh microfiber pads on each property. And every time you contact Purple Ren, you speak directly with us.
+      </p>
+      <div class="about-reasons reveal d4">
+        <div class="reason">
+          <span class="reason-dot" aria-hidden="true"></span>
+          <span class="reason-text">Same husband &amp; wife team, every visit</span>
+        </div>
+        <div class="reason">
+          <span class="reason-dot" aria-hidden="true"></span>
+          <span class="reason-text">AMU professional cleaning certification</span>
+        </div>
+        <div class="reason">
+          <span class="reason-dot" aria-hidden="true"></span>
+          <span class="reason-text">Systematic 6-step cleaning method</span>
+        </div>
+        <div class="reason">
+          <span class="reason-dot" aria-hidden="true"></span>
+          <span class="reason-text">Commercial-grade equipment</span>
+        </div>
+        <div class="reason">
+          <span class="reason-dot" aria-hidden="true"></span>
+          <span class="reason-text">6–16 fresh microfiber pads per visit</span>
+        </div>
+        <div class="reason">
+          <span class="reason-dot" aria-hidden="true"></span>
+          <span class="reason-text">Surface wiping — removes dirt, not spreads it</span>
+        </div>
+        <div class="reason">
+          <span class="reason-dot" aria-hidden="true"></span>
+          <span class="reason-text">Direct communication with the owners, always</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Areas -->
+  <section class="areas-section" id="areas">
+    <div class="areas-inner">
+      <span class="section-tag-light reveal">Where We Work</span>
+      <h2 class="areas-title reveal d1">
+        Serving all of<br><em>Copenhagen</em>
+      </h2>
+      <div class="areas-pills reveal d2">
+        <span class="area-pill">Østerbro</span>
+        <span class="area-pill">Nørrebro</span>
+        <span class="area-pill">Vesterbro</span>
+        <span class="area-pill">Frederiksberg</span>
+        <span class="area-pill">Amager</span>
+        <span class="area-pill">Valby</span>
+        <span class="area-pill">Vanløse</span>
+        <span class="area-pill">Brønshøj</span>
+        <span class="area-pill">Nordvest</span>
+        <span class="area-pill">Copenhagen City Centre</span>
+        <span class="area-pill">Hellerup</span>
+        <span class="area-pill">Gentofte</span>
+      </div>
+      <p class="areas-note reveal d3">
+        <strong>Don't see your area listed?</strong><br>
+        Please get in touch. While our primary focus is Copenhagen, we are always happy to discuss properties in
+        surrounding areas and determine whether we can accommodate your requirements.
+      </p>
+    </div>
+  </section>
+
+  <!-- Business Hours -->
+  <section class="hours-section" id="hours">
+    <div class="hours-inner">
+      <div class="hours-left reveal">
+        <span class="section-tag">Business Hours</span>
+        <h3><em>Available</em> three days a week</h3>
+        <p class="hours-note">
+          We work scheduled visits on Mondays, Tuesdays, and Thursdays. Contact us to arrange a time that suits your
+          property&rsquo;s needs and your preferred cleaning frequency.
+        </p>
+      </div>
+      <div class="hours-chips reveal d2">
+        <div class="hour-chip">
+          <span class="chip-day">Monday</span>
+          <span class="chip-time">08:00 – 17:00</span>
+        </div>
+        <div class="hour-chip">
+          <span class="chip-day">Tuesday</span>
+          <span class="chip-time">08:00 – 17:00</span>
+        </div>
+        <div class="hour-chip">
+          <span class="chip-day">Thursday</span>
+          <span class="chip-time">08:00 – 17:00</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section" id="faq">
+    <div class="faq-inner">
+      <div class="faq-left">
+        <span class="section-tag reveal">FAQ</span>
+        <h2 class="faq-headline reveal d1">
+          Common<br><em>questions</em><br>answered.
+        </h2>
+      </div>
+      <ul class="faq-list reveal d2">
+        <li class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            Who actually performs the cleaning?
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M6 2V10M2 6H10" stroke="#7B2FBE" stroke-width="1.4" />
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer" role="region">
+            <p>Always us &mdash; the owners. We personally perform every single cleaning and service visit. We do not
+              use sub-contractors or rotating employees. You will always see the same familiar faces at your property.
+            </p>
+          </div>
+        </li>
+        <li class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            Which areas of Copenhagen do you serve?
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M6 2V10M2 6H10" stroke="#7B2FBE" stroke-width="1.4" />
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer" role="region">
+            <p>We currently serve Østerbro, Nørrebro, Vesterbro, Frederiksberg, Amager, Valby, Vanløse, Brønshøj,
+              Nordvest, and Copenhagen City Centre. Not sure if your address is covered? Contact us and we&rsquo;ll let
+              you know.</p>
+          </div>
+        </li>
+        <li class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            Can we set up a recurring cleaning agreement?
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M6 2V10M2 6H10" stroke="#7B2FBE" stroke-width="1.4" />
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer" role="region">
+            <p>Yes. We offer weekly, bi-weekly, monthly, and fully custom schedules to suit your property. Recurring
+              agreements are our most popular option &mdash; clients tell us the consistency makes a real difference to
+              residents.</p>
+          </div>
+        </li>
+        <li class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            What happens if you&rsquo;re unavailable?
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M6 2V10M2 6H10" stroke="#7B2FBE" stroke-width="1.4" />
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer" role="region">
+            <p>In the rare event we cannot attend a visit, we have a small group of trusted partners who meet our
+              standards. We always give advance notice and ensure your property is never left without service.</p>
+          </div>
+        </li>
+        <li class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            How much does it cost?
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M6 2V10M2 6H10" stroke="#7B2FBE" stroke-width="1.4" />
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer" role="region">
+            <p>Every property is different, so we don&rsquo;t use fixed pricing. Instead, we provide a free,
+              personalised quote based on your property&rsquo;s specific size, layout, floor type, and service
+              requirements. Use the form below to get started.</p>
+          </div>
+        </li>
+        <li class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            Why does it matter that you&rsquo;re owner-operated?
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M6 2V10M2 6H10" stroke="#7B2FBE" stroke-width="1.4" />
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer" role="region">
+            <p>When the owners do the work, accountability is direct. We care about the quality of every visit because
+              it is our name on the business. Agencies can manage from a distance &mdash; we cannot, and we prefer it
+              that way.</p>
+          </div>
+        </li>
+        <li class="faq-item">
+          <button class="faq-btn" aria-expanded="false">
+            What professional training do you have?
+            <span class="faq-icon" aria-hidden="true">
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                <path d="M6 2V10M2 6H10" stroke="#7B2FBE" stroke-width="1.4" />
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer" role="region">
+            <p>We hold an AMU (Arbejdsmarkedsuddannelse) certification in &ldquo;Materialekendskab og
+              rengøringskemi&rdquo; &mdash; materials knowledge and cleaning chemistry. This means we understand the
+              science behind cleaning, not just the motions.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Quote Form -->
+  <section class="quote-section" id="quote">
+    <div class="quote-inner">
+      <div class="reveal">
+        <div class="q-eye">Free Personalised Quote</div>
+        <h2 class="q-title">
+          Your property<br><em>deserves</em><br>attention.
+        </h2>
+        <p class="q-sub">
+          Tell us about your property and we&rsquo;ll come back to you with a personalised quote &mdash; no obligation,
+          no generic pricing, no middlemen.
+        </p>
+        <div class="q-contact">
+          <div class="q-contact-item">
+            <span class="q-contact-label">Phone</span>
+            <span class="q-contact-val"><a href="tel:+4571900878">+45 71 90 08 78</a></span>
+          </div>
+          <div class="q-contact-item">
+            <span class="q-contact-label">Email</span>
+            <span class="q-contact-val"><a href="mailto:purpleren.dk@gmail.com">purpleren.dk@gmail.com</a></span>
+          </div>
+          <div class="q-contact-item">
+            <span class="q-contact-label">CVR</span>
+            <span class="q-contact-val">45507548</span>
+          </div>
+        </div>
+      </div>
+      <div class="reveal d2">
+        <form class="quote-form" action="mailto:purpleren.dk@gmail.com" method="post" enctype="text/plain">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="f-name">Full Name</label>
+              <input class="form-input" type="text" id="f-name" name="name" required placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="f-mobile">Mobile Number</label>
+              <input class="form-input" type="tel" id="f-mobile" name="mobile" placeholder="+45 00 00 00 00">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-email">Email Address</label>
+            <input class="form-input" type="email" id="f-email" name="email" required placeholder="you@example.com">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-address">Property Address</label>
+            <input class="form-input" type="text" id="f-address" name="address" placeholder="Street, postcode, city">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Services Needed</label>
+            <div class="form-checks-group">
+              <div class="form-checks-category">Stairwell Cleaning (Trappevask)</div>
+              <div class="form-checks">
+                <label class="form-check-label">
+                  <input type="checkbox" name="service" value="vacuuming"> Stairwell Vacuuming
+                </label>
+                <label class="form-check-label">
+                  <input type="checkbox" name="service" value="floor-washing"> Floor Washing
+                </label>
+                <label class="form-check-label">
+                  <input type="checkbox" name="service" value="disinfection"> Surface Disinfection
+                </label>
+              </div>
+              <div class="form-checks-category" style="margin-top: 0.75rem;">Property Services (Ejendomsservice)</div>
+              <div class="form-checks">
+                <label class="form-check-label">
+                  <input type="checkbox" name="service" value="inspections"> Property Inspections
+                </label>
+                <label class="form-check-label">
+                  <input type="checkbox" name="service" value="outdoor"> Outdoor &amp; Yard Care
+                </label>
+                <label class="form-check-label">
+                  <input type="checkbox" name="service" value="utility"> Utility Rooms
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="f-floors">Number of Floors / Stairs</label>
+              <input class="form-input" type="text" id="f-floors" name="floors" placeholder="e.g. 4 floors">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="f-floor-type">Floor Type</label>
+              <select class="form-select" id="f-floor-type" name="floorType">
+                <option value="">Select floor type</option>
+                <option>Stone / Tile</option>
+                <option>Wood / Parquet</option>
+                <option>Concrete</option>
+                <option>Mixed</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-message">Additional Details</label>
+            <textarea class="form-textarea" id="f-message" name="message"
+              placeholder="Special requirements, current cleaning schedule, or questions…"></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-time">Best Time to Contact You</label>
+            <input class="form-input" type="text" id="f-time" name="contactTime" placeholder="e.g. Weekday mornings">
+          </div>
+          <button type="submit" class="form-submit">Send Quote Request &rarr;</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="foot-inner">
+      <div class="foot-top">
+        <div>
+          <div class="foot-brand">
+            <span class="foot-brand-dot" aria-hidden="true"></span>
+            Purple Ren
+          </div>
+          <p class="foot-tagline">Professional cleaning and property services for Copenhagen&rsquo;s residential
+            buildings &mdash; delivered by the same trusted family team, every visit.</p>
+        </div>
+        <div>
+          <div class="foot-col-title">Navigation</div>
+          <ul class="foot-links">
+            <li><a href="#services">Services</a></li>
+            <li><a href="#method">Our Method</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#quote">Get a Quote</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="foot-col-title">Services</div>
+          <ul class="foot-links">
+            <li><a href="#services">Stairwell Cleaning</a></li>
+            <li><a href="#services">Property Services</a></li>
+            <li><a href="#areas">Service Areas</a></li>
+            <li><a href="#hours">Business Hours</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="foot-col-title">Contact</div>
+          <ul class="foot-links">
+            <li><a href="tel:+4571900878">+45 71 90 08 78</a></li>
+            <li><a href="mailto:purpleren.dk@gmail.com">purpleren.dk@gmail.com</a></li>
+            <li><a href="#areas">Copenhagen, Denmark</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span class="foot-copy">&copy; 2026 Purple Ren &mdash; Rengøring og Ejendomsservice. All rights reserved.</span>
+        <ul class="foot-legal">
+          <li><a href="#">CVR: 45507548</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(
+      entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      }),
+      { threshold: 0.08, rootMargin: '0px 0px -36px 0px' }
+    );
+    reveals.forEach(el => io.observe(el));
+
+    // Nav compact on scroll
+    const navEl = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      navEl.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // FAQ accordion — single open at a time
+    document.querySelectorAll('.faq-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Hero video — auto play full video
+    const heroVideo = document.querySelector('.hero-visual');
+    if (heroVideo && heroVideo.tagName === 'VIDEO') {
+      heroVideo.play();
+    }
+  </script>
+</body>
+
+</html>

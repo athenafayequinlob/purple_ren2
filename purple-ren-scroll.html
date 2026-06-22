@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Purple Ren — Professional stairwell cleaning and property services in Copenhagen. Family-owned, AMU certified. CVR 45507548.">
+  <title>Purple Ren — Stairwell Cleaning & Property Services, Copenhagen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font); color: var(--text); background: var(--white); overflow-x: hidden; }
+    img, video { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    :root {
+      --purple:      #7B2FBE;
+      --purple-deep: #5A189A;
+      --purple-mid:  #9B59D0;
+      --purple-dim:  #E9D8FD;
+      --dark:        #1A1A2E;
+      --dark-2:      #12122A;
+      --white:       #FFFFFF;
+      --text:        #0F0E17;
+      --muted:       #6B6B80;
+      --surface:     #F5F3FF;
+      --border:      #E2DAF5;
+      --font: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* ─── Nav ─────────────────────────────────────────── */
+    #nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 72px; padding: 0 48px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(26,26,46,0.88);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .logo { display: flex; align-items: center; }
+    .logo-img { height: 46px; width: auto; filter: brightness(0) invert(1); }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.72); transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta {
+      font-size: 14px; font-weight: 600;
+      padding: 10px 22px; border-radius: 100px;
+      background: var(--purple); color: #fff;
+      transition: background 0.22s, transform 0.22s;
+    }
+    .nav-cta:hover { background: var(--purple-deep); transform: translateY(-1px); }
+
+    /* ─── Hero ────────────────────────────────────────── */
+    #hero {
+      min-height: 100svh;
+      background: var(--dark);
+      display: grid;
+      grid-template-columns: 58fr 42fr;
+      grid-template-rows: 1fr auto;
+      position: relative;
+      overflow: hidden;
+      padding-top: 72px;
+    }
+    .hero-bg-video {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; object-position: center center; z-index: 0;
+      transform: scale(1.12);
+      transform-origin: center center;
+    }
+    .hero-scrim {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background:
+        linear-gradient(to right, rgba(18,18,42,0.95) 0%, rgba(18,18,42,0.82) 42%, rgba(18,18,42,0.48) 100%),
+        linear-gradient(to bottom, rgba(18,18,42,0.55) 0%, rgba(18,18,42,0.20) 30%, rgba(18,18,42,0.70) 100%);
+    }
+    .hero-l {
+      padding: clamp(40px, 6vw, 96px) clamp(32px, 5vw, 80px);
+      display: flex; flex-direction: column; justify-content: center;
+      gap: 28px; will-change: opacity, transform;
+      position: relative; z-index: 2;
+    }
+    .hero-eyebrow {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--purple-mid);
+    }
+    .hero-h1 {
+      font-size: clamp(58px, 7.8vw, 112px);
+      font-weight: 800; line-height: 0.95;
+      letter-spacing: -0.045em; color: #fff;
+    }
+    .hero-h1 em { font-style: normal; color: var(--purple-mid); }
+    .hero-p {
+      font-size: clamp(15px, 1.4vw, 18px);
+      color: rgba(255,255,255,0.65); line-height: 1.6; max-width: 480px;
+    }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-p {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 15px; font-weight: 600;
+      padding: 14px 28px; border-radius: 100px;
+      background: var(--purple); color: #fff;
+      transition: background 0.22s, transform 0.22s;
+    }
+    .btn-p:hover { background: var(--purple-deep); transform: translateY(-2px); }
+    .btn-g {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 15px; font-weight: 500;
+      padding: 14px 28px; border-radius: 100px;
+      border: 1.5px solid rgba(255,255,255,0.22); color: rgba(255,255,255,0.82);
+      transition: border-color 0.22s, color 0.22s;
+    }
+    .btn-g:hover { border-color: rgba(255,255,255,0.55); color: #fff; }
+
+    /* Hero right — floating card */
+    .hero-r {
+      display: flex; align-items: center; justify-content: center;
+      padding: clamp(24px, 4vw, 64px);
+      will-change: opacity, transform;
+      position: relative; z-index: 2;
+    }
+    .hero-card {
+      background: rgba(255,255,255,0.97);
+      border-radius: 24px; padding: 32px; max-width: 380px; width: 100%;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.42), 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .hc-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--purple); margin-bottom: 16px;
+    }
+    .hc-title { font-size: 22px; font-weight: 800; color: var(--text); line-height: 1.2; margin-bottom: 8px; }
+    .hc-desc { font-size: 14px; color: var(--muted); line-height: 1.5; margin-bottom: 24px; }
+    .hc-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+    .hc-stat-val { font-size: 28px; font-weight: 800; color: var(--purple); line-height: 1; }
+    .hc-stat-lbl { font-size: 12px; color: var(--muted); margin-top: 4px; }
+    .hc-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+    .hc-badge {
+      font-size: 12px; font-weight: 600; padding: 6px 12px; border-radius: 100px;
+      background: var(--surface); color: var(--purple); border: 1px solid var(--border);
+    }
+
+    /* Hero bottom proof strip */
+    .hero-bottom {
+      grid-column: 1 / -1;
+      display: flex; align-items: center; gap: 40px;
+      padding: 24px clamp(32px, 5vw, 80px);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      will-change: opacity, transform;
+      position: relative; z-index: 2;
+    }
+    .hb-proof { display: flex; align-items: center; gap: 16px; }
+    .hb-avatars { display: flex; }
+    .hb-av {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--purple); border: 2px solid var(--dark);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 700; color: #fff;
+      margin-left: -8px;
+    }
+    .hb-av:first-child { margin-left: 0; }
+    .hb-stat { display: flex; flex-direction: column; }
+    .hb-num { font-size: 20px; font-weight: 800; color: #fff; line-height: 1; }
+    .hb-lbl { font-size: 12px; color: rgba(255,255,255,0.55); }
+    .hb-rule { width: 1px; height: 32px; background: rgba(255,255,255,0.12); }
+    .hb-statement { font-size: 13px; color: rgba(255,255,255,0.55); font-style: italic; }
+
+    .hero-fade {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 200px;
+      background: linear-gradient(to bottom, transparent 0%, #000 100%);
+      z-index: 3; pointer-events: none;
+    }
+
+    /* ─── Marquee ─────────────────────────────────────── */
+    .marquee-wrap {
+      background: #000; overflow: hidden; padding: 20px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .marquee-track {
+      display: flex; gap: 48px; width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+    .marquee-item {
+      font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: rgba(255,255,255,0.45);
+      white-space: nowrap; display: flex; align-items: center; gap: 48px;
+    }
+    .marquee-item::after { content: '✦'; color: var(--purple-mid); font-size: 10px; }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+
+    /* ─── Video scroll ────────────────────────────────── */
+    #video-scroll { height: 450vh; position: relative; }
+    .vs-sticky {
+      position: sticky; top: 0; height: 100vh;
+      overflow: hidden; background: #000;
+    }
+    #scrub-video {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    }
+    .vs-overlay {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: linear-gradient(to bottom,
+        rgba(0,0,0,0.55) 0%,
+        rgba(0,0,0,0.18) 30%,
+        rgba(0,0,0,0.18) 62%,
+        rgba(0,0,0,0.80) 86%,
+        rgba(0,0,0,1.00) 100%);
+    }
+    .vs-texts {
+      position: absolute; inset: 0; z-index: 2;
+      display: flex; align-items: center; justify-content: center;
+      padding: 0 24px; pointer-events: none;
+    }
+    .vs-text {
+      position: absolute; text-align: center; max-width: 640px;
+      opacity: 0; transform: translateY(18px);
+    }
+    .vs-text::before {
+      content: ''; position: absolute; inset: -64px -120px; z-index: -1;
+      background: radial-gradient(ellipse 75% 85% at 50% 50%,
+        rgba(0,0,0,0.66) 0%, rgba(0,0,0,0.40) 45%, transparent 78%);
+    }
+    .vs-text h2 {
+      font-size: clamp(26px, 3.4vw, 46px); font-weight: 800; line-height: 1.12; color: #fff;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.9), 0 1px 4px rgba(0,0,0,0.7);
+      margin-bottom: 14px;
+    }
+    .vs-text h2 em { font-style: normal; color: var(--purple-mid); }
+    .vs-text p {
+      font-size: clamp(15px, 1.3vw, 17px); color: rgba(255,255,255,0.9); line-height: 1.6;
+      text-shadow: 0 1px 12px rgba(0,0,0,0.85); max-width: 460px; margin: 0 auto;
+    }
+    .vs-dots {
+      position: absolute; right: 48px; top: 50%; transform: translateY(-50%);
+      z-index: 3; display: flex; flex-direction: column; gap: 10px;
+    }
+    .vs-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      transition: background 0.3s, transform 0.3s;
+    }
+    .vs-dot.active { background: #fff; transform: scale(1.4); }
+
+    /* ─── Services scroll strip ──────────────────────── */
+    #svc-scroll {
+      background: var(--dark); overflow: hidden;
+      padding: clamp(64px, 8vw, 100px) 0;
+    }
+    .svc-scroll-head {
+      padding: 0 clamp(24px, 5vw, 80px) 48px;
+      display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;
+    }
+    .svc-scroll-title {
+      font-size: clamp(28px, 3.5vw, 44px); font-weight: 800; line-height: 1.1; color: #fff;
+    }
+    .svc-scroll-title em { font-style: normal; color: var(--purple-mid); }
+    .svc-scroll-sub { font-size: 14px; color: rgba(255,255,255,0.5); max-width: 280px; line-height: 1.5; text-align: right; }
+    .svc-track-outer { position: relative; }
+    .svc-track-outer::after {
+      content: ''; position: absolute; top: 0; right: 0; bottom: 0; width: 120px; pointer-events: none;
+      background: linear-gradient(to right, transparent, var(--dark));
+      z-index: 2;
+    }
+    .svc-track-wrap { overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; cursor: grab; }
+    .svc-track-wrap::-webkit-scrollbar { display: none; }
+    .svc-track-wrap.dragging { cursor: grabbing; }
+    .svc-scroll-arrows { display: flex; gap: 8px; }
+    .svc-arrow {
+      width: 40px; height: 40px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background 0.2s, border-color 0.2s;
+      color: rgba(255,255,255,0.7); flex-shrink: 0;
+    }
+    .svc-arrow:hover { background: rgba(123,47,190,0.3); border-color: var(--purple-mid); color: #fff; }
+    .svc-hint {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 12px; color: rgba(255,255,255,0.35); letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600;
+    }
+    .svc-hint-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--purple-mid); animation: pulse 1.8s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{ opacity:0.4; transform:scale(1); } 50%{ opacity:1; transform:scale(1.5); } }
+    .svc-track {
+      display: flex; gap: 16px;
+      padding: 0 clamp(24px, 5vw, 80px);
+      width: max-content;
+    }
+    .svc-col {
+      width: 280px; flex-shrink: 0;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px; padding: 32px;
+      display: flex; flex-direction: column; gap: 16px;
+      transition: background 0.28s var(--ease), border-color 0.28s var(--ease), transform 0.28s var(--ease);
+    }
+    .svc-col:hover {
+      background: rgba(123,47,190,0.14);
+      border-color: rgba(123,47,190,0.4);
+      transform: translateY(-4px);
+    }
+    .svc-col-num {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      color: var(--purple-mid); text-transform: uppercase;
+    }
+    .svc-col-name { font-size: 20px; font-weight: 800; color: #fff; line-height: 1.2; }
+    .svc-col-danish { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+    .svc-col-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.6; flex: 1; }
+    .svc-col-video {
+      width: 100%; aspect-ratio: 4/3; border-radius: 12px;
+      overflow: hidden; background: rgba(255,255,255,0.04);
+      border: 1px dashed rgba(255,255,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 8px; margin-bottom: 4px;
+      position: relative;
+    }
+    .svc-col-video video {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; border-radius: 12px;
+    }
+    .svc-col-video-placeholder {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      pointer-events: none;
+    }
+    .svc-col-video-placeholder span {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: rgba(255,255,255,0.22);
+    }
+    .svc-col-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(123,47,190,0.2);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 4px;
+    }
+
+    /* ─── Services ────────────────────────────────────── */
+    #services {
+      background: var(--surface);
+      padding: clamp(64px, 9vw, 120px) clamp(24px, 5vw, 80px);
+    }
+    .svc-header { text-align: center; max-width: 640px; margin: 0 auto 64px; }
+    .s-label {
+      display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--purple);
+      background: var(--purple-dim); padding: 6px 14px; border-radius: 100px; margin-bottom: 20px;
+    }
+    .svc-h2 {
+      font-size: clamp(32px, 4vw, 52px); font-weight: 800; line-height: 1.1;
+      color: var(--text); margin-bottom: 16px;
+    }
+    .svc-h2 em { font-style: normal; color: var(--purple); }
+    .svc-lead { font-size: 16px; color: var(--muted); line-height: 1.6; }
+    .svc-cards-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 1100px; margin: 0 auto;
+    }
+    .svc-card {
+      border-radius: 24px; padding: 48px; background: var(--white);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+      transition: transform 0.28s var(--ease), box-shadow 0.28s var(--ease);
+    }
+    .svc-card:hover { transform: translateY(-6px); box-shadow: 0 20px 56px rgba(0,0,0,0.10); }
+    .svc-icon { width: 56px; height: 56px; margin-bottom: 24px; }
+    .svc-card-name { font-size: 26px; font-weight: 800; color: var(--text); margin-bottom: 4px; }
+    .svc-card-danish {
+      font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+      color: var(--purple); text-transform: uppercase; margin-bottom: 16px;
+    }
+    .svc-card-desc { font-size: 15px; color: var(--muted); line-height: 1.6; margin-bottom: 24px; }
+    .svc-list { display: flex; flex-direction: column; gap: 12px; }
+    .svc-list-item {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 14px; color: var(--muted); line-height: 1.4;
+    }
+    .svc-list-item svg { flex-shrink: 0; margin-top: 2px; }
+
+    /* ─── Gallery bento ───────────────────────────────── */
+    #gallery {
+      background: var(--white);
+      padding: clamp(64px, 9vw, 120px) clamp(24px, 5vw, 80px);
+    }
+    .gallery-header { text-align: center; max-width: 640px; margin: 0 auto 48px; }
+    .gallery-h2 {
+      font-size: clamp(32px, 4vw, 52px); font-weight: 800; line-height: 1.1;
+      color: var(--text); margin-bottom: 8px;
+    }
+    .gallery-h2 em { font-style: normal; color: var(--purple); }
+    .bento {
+      display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .g-card {
+      position: relative; border-radius: 20px; overflow: hidden;
+      background: var(--surface);
+    }
+    .bento .g-card:nth-child(1) { grid-column: span 7; min-height: 480px; }
+    .bento .g-card:nth-child(2) { grid-column: span 5; min-height: 240px; }
+    .bento .g-card:nth-child(3) { grid-column: span 5; min-height: 240px; }
+    .bento .g-card:nth-child(4) { grid-column: span 4; min-height: 360px; }
+    .bento .g-card:nth-child(5) { grid-column: span 8; min-height: 360px; }
+    .bento .g-card:nth-child(6) { grid-column: span 6; min-height: 240px; }
+    .bento .g-card:nth-child(7) { grid-column: span 3; min-height: 240px; }
+    .bento .g-card:nth-child(8) { grid-column: span 3; min-height: 240px; }
+    .g-bg {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s var(--ease), filter 0.6s var(--ease);
+    }
+    .g-card:hover .g-bg { transform: scale(1.05); filter: brightness(0.7); }
+    .g-placeholder {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--purple-dim) 0%, var(--border) 100%);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .g-placeholder-icon { opacity: 0.25; }
+    .g-veil {
+      position: absolute; inset: 0; opacity: 0.85;
+      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.12) 55%, transparent 100%);
+      transition: opacity 0.4s;
+    }
+    .g-card:hover .g-veil { opacity: 1; }
+    .g-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 24px; }
+    .g-cat {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--purple-mid); margin-bottom: 4px;
+    }
+    .g-name { font-size: 16px; font-weight: 700; color: #fff; }
+
+    /* ─── Quote form ──────────────────────────────────── */
+    #quote {
+      background: var(--surface);
+      padding: clamp(64px, 9vw, 120px) clamp(24px, 5vw, 80px);
+    }
+    .quote-inner { max-width: 760px; margin: 0 auto; }
+    .quote-header { text-align: center; margin-bottom: 48px; }
+    .quote-h2 {
+      font-size: clamp(32px, 4vw, 52px); font-weight: 800; line-height: 1.1;
+      color: var(--text); margin-bottom: 16px;
+    }
+    .quote-h2 em { font-style: normal; color: var(--purple); }
+    .quote-lead { font-size: 16px; color: var(--muted); }
+    .quote-card {
+      background: var(--white); border-radius: 24px; padding: 48px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block; font-size: 13px; font-weight: 600;
+      color: var(--text); margin-bottom: 8px;
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-input, .form-textarea, .form-select {
+      width: 100%; font-family: var(--font); font-size: 15px;
+      padding: 12px 16px; border-radius: 12px;
+      border: 1.5px solid var(--border); color: var(--text);
+      background: var(--white); outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      border-color: var(--purple); box-shadow: 0 0 0 3px rgba(123,47,190,0.12);
+    }
+    .form-textarea { resize: vertical; min-height: 100px; }
+    .form-checkboxes { display: flex; flex-direction: column; gap: 8px; }
+    .form-svc-group-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--purple);
+      margin-top: 8px; margin-bottom: 2px;
+    }
+    .form-svc-group-label:first-child { margin-top: 0; }
+    .form-check-label {
+      display: flex; align-items: flex-start; gap: 10px;
+      font-size: 14px; color: var(--text); cursor: pointer; line-height: 1.4;
+    }
+    .form-check-label input[type="checkbox"] {
+      margin-top: 2px; accent-color: var(--purple); flex-shrink: 0;
+    }
+    .form-submit {
+      width: 100%; padding: 16px; border-radius: 100px;
+      background: var(--purple); color: #fff;
+      font-family: var(--font); font-size: 16px; font-weight: 700;
+      border: none; cursor: pointer; margin-top: 8px;
+      transition: background 0.22s, transform 0.22s;
+    }
+    .form-submit:hover { background: var(--purple-deep); transform: translateY(-2px); }
+    .form-note { font-size: 12px; color: var(--muted); text-align: center; margin-top: 12px; }
+
+    /* ─── Why Choose Us ──────────────────────────────── */
+    #why-us { background: var(--dark); padding: clamp(64px,9vw,120px) clamp(24px,5vw,80px); }
+    .why-inner { max-width: 1200px; margin: 0 auto; }
+    .why-header { text-align: center; max-width: 680px; margin: 0 auto 56px; }
+    .why-h2 { font-size: clamp(32px,4vw,52px); font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 16px; }
+    .why-h2 em { font-style: normal; color: var(--purple-mid); }
+    .why-lead { font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+    .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .why-card {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px; padding: 32px;
+      transition: background 0.28s var(--ease), border-color 0.28s var(--ease);
+    }
+    .why-card:hover { background: rgba(123,47,190,0.10); border-color: rgba(123,47,190,0.3); }
+    .why-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(123,47,190,0.18); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+    .why-card-title { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 10px; line-height: 1.3; }
+    .why-card-desc { font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+    /* ─── Method ──────────────────────────────────────── */
+    #method { background: var(--surface); padding: clamp(64px,9vw,120px) clamp(24px,5vw,80px); }
+    .method-inner { max-width: 1100px; margin: 0 auto; }
+    .meth-header { text-align: center; max-width: 640px; margin: 0 auto 56px; }
+    .meth-h2 { font-size: clamp(32px,4vw,52px); font-weight: 800; color: var(--text); line-height: 1.1; margin-bottom: 16px; }
+    .meth-h2 em { font-style: normal; color: var(--purple); }
+    .meth-lead { font-size: 16px; color: var(--muted); line-height: 1.6; }
+    .meth-steps { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .meth-step { background: var(--white); border-radius: 20px; padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+    .step-num { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple); margin-bottom: 12px; }
+    .step-title { font-size: 18px; font-weight: 800; color: var(--text); margin-bottom: 10px; line-height: 1.3; }
+    .step-body { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+    /* ─── About ───────────────────────────────────────── */
+    #about { background: var(--white); padding: clamp(64px,9vw,120px) clamp(24px,5vw,80px); }
+    .about-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .about-h2 { font-size: clamp(28px,3.5vw,46px); font-weight: 800; color: var(--text); line-height: 1.1; margin: 16px 0 24px; }
+    .about-h2 em { font-style: normal; color: var(--purple); }
+    .about-body { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 16px; }
+    .about-body em { font-style: italic; color: var(--text); }
+    .about-facts { display: flex; gap: 32px; margin-top: 32px; padding-top: 32px; border-top: 1px solid var(--border); }
+    .about-fact { display: flex; flex-direction: column; gap: 4px; }
+    .af-val { font-size: 22px; font-weight: 800; color: var(--purple); }
+    .af-lbl { font-size: 12px; color: var(--muted); }
+    .about-contact-card { background: var(--surface); border: 1px solid var(--border); border-radius: 24px; padding: 36px; }
+    .about-contact-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--purple); margin-bottom: 20px; display: block; }
+    .about-contact-row { display: flex; align-items: center; gap: 12px; font-size: 15px; color: var(--text); font-weight: 500; padding: 12px 0; border-bottom: 1px solid var(--border); text-decoration: none; transition: color 0.2s; }
+    .about-contact-row:hover { color: var(--purple); }
+    .about-contact-divider { height: 1px; background: var(--border); margin: 16px 0; }
+    .about-contact-note { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+    /* ─── Areas ───────────────────────────────────────── */
+    #areas { background: var(--dark); padding: clamp(64px,9vw,120px) clamp(24px,5vw,80px); }
+    .areas-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+    .areas-h2 { font-size: clamp(32px,4vw,52px); font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 16px; }
+    .areas-h2 em { font-style: normal; color: var(--purple-mid); }
+    .areas-lead { font-size: 16px; color: rgba(255,255,255,0.55); line-height: 1.6; margin-bottom: 40px; }
+    .areas-grid { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 32px; }
+    .area-tag {
+      padding: 10px 20px; border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05);
+      font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.82);
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .area-tag:hover { background: rgba(123,47,190,0.2); border-color: var(--purple-mid); color: #fff; }
+    .areas-note { font-size: 14px; color: rgba(255,255,255,0.45); }
+    .areas-note a { color: var(--purple-mid); text-decoration: underline; text-underline-offset: 3px; }
+
+    /* ─── FAQ ─────────────────────────────────────────── */
+    #faq { background: var(--surface); padding: clamp(64px,9vw,120px) clamp(24px,5vw,80px); }
+    .faq-inner { max-width: 780px; margin: 0 auto; }
+    .faq-header { text-align: center; margin-bottom: 48px; }
+    .faq-h2 { font-size: clamp(32px,4vw,52px); font-weight: 800; color: var(--text); line-height: 1.1; margin-bottom: 8px; }
+    .faq-h2 em { font-style: normal; color: var(--purple); }
+    .faq-list { display: flex; flex-direction: column; gap: 12px; }
+    .faq-item { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.04); }
+    .faq-q {
+      list-style: none; padding: 22px 28px; font-size: 16px; font-weight: 700;
+      color: var(--text); cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+      gap: 16px;
+    }
+    .faq-q::after { content: '+'; font-size: 22px; font-weight: 300; color: var(--purple); flex-shrink: 0; transition: transform 0.3s; }
+    details[open] .faq-q::after { transform: rotate(45deg); }
+    .faq-a { padding: 0 28px 22px; font-size: 15px; color: var(--muted); line-height: 1.7; }
+
+    /* ─── Footer ──────────────────────────────────────── */
+    footer {
+      background: var(--dark-2); color: rgba(255,255,255,0.55);
+      padding: 56px clamp(24px, 5vw, 80px);
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+    }
+    .foot-logo-img { height: 36px; filter: brightness(0) invert(1); opacity: 0.7; margin-bottom: 12px; }
+    .foot-copy { font-size: 13px; }
+    .foot-cvr { font-size: 12px; color: rgba(255,255,255,0.3); margin-top: 6px; }
+    .foot-col-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 14px; display: block; }
+    .foot-contact-link, .foot-nav-link { display: block; font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 8px; transition: color 0.2s; text-decoration: none; }
+    .foot-contact-link:hover, .foot-nav-link:hover { color: rgba(255,255,255,0.9); }
+    .foot-hours { font-size: 13px; color: rgba(255,255,255,0.55); margin-bottom: 4px; }
+
+    /* ─── Reveal ──────────────────────────────────────── */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+  </style>
+</head>
+<body>
+
+<!-- ─── Nav ─────────────────────────────────────────────── -->
+<nav id="nav">
+  <a href="#" class="logo">
+    <img class="logo-img" src="PURPLE%20REN%20Logos/purple-ren-nav.svg" alt="Purple Ren">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why-us">Why Us</a></li>
+    <li><a href="#method">Method</a></li>
+    <li><a href="#areas">Areas</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#quote" class="nav-cta">Get a Free Quote</a>
+</nav>
+
+<!-- ─── Hero ─────────────────────────────────────────────── -->
+<section id="hero">
+  <div class="hero-l">
+    <span class="hero-eyebrow">Family-Owned &mdash; Copenhagen, Denmark</span>
+    <h1 class="hero-h1">
+      Clean<br>buildings,<br><em>every time.</em>
+    </h1>
+    <p class="hero-p">Professional stairwell cleaning and property services — delivered by the same trusted husband and wife team, every single visit. No sub-contractors, ever.</p>
+    <div class="hero-btns">
+      <a href="#quote" class="btn-p">
+        Request a Free Quote
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5"/></svg>
+      </a>
+      <a href="#services" class="btn-g">Our Services</a>
+    </div>
+  </div>
+  <div class="hero-r">
+    <div class="hero-card">
+      <p class="hc-eyebrow">Why property managers choose us</p>
+      <h3 class="hc-title">Owner-operated. Always.</h3>
+      <p class="hc-desc">No sub-contractors, no rotating staff. The same certified team at your property, every visit.</p>
+      <div class="hc-stats">
+        <div>
+          <div class="hc-stat-val">8+</div>
+          <div class="hc-stat-lbl">Years of experience</div>
+        </div>
+        <div>
+          <div class="hc-stat-val">50+</div>
+          <div class="hc-stat-lbl">Properties managed</div>
+        </div>
+        <div>
+          <div class="hc-stat-val">AMU</div>
+          <div class="hc-stat-lbl">Certified professionals</div>
+        </div>
+        <div>
+          <div class="hc-stat-val">CVR</div>
+          <div class="hc-stat-lbl">45507548</div>
+        </div>
+      </div>
+      <div class="hc-badges">
+        <span class="hc-badge">Trappevask</span>
+        <span class="hc-badge">Ejendomsservice</span>
+        <span class="hc-badge">Family-Owned</span>
+        <span class="hc-badge">Copenhagen</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <div class="hb-proof">
+      <div class="hb-avatars">
+        <div class="hb-av">PR</div>
+        <div class="hb-av">★</div>
+        <div class="hb-av">✓</div>
+      </div>
+      <div class="hb-stat">
+        <span class="hb-num">50+</span>
+        <span class="hb-lbl">Properties managed</span>
+      </div>
+    </div>
+    <div class="hb-rule"></div>
+    <p class="hb-statement">Always owner-operated —<br>never outsourced</p>
+  </div>
+  <div class="hero-fade"></div>
+</section>
+
+<!-- ─── Marquee ───────────────────────────────────────────── -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Trappevask</span>
+    <span class="marquee-item">Ejendomsservice</span>
+    <span class="marquee-item">Stairwell Cleaning</span>
+    <span class="marquee-item">Property Services</span>
+    <span class="marquee-item">AMU Certified</span>
+    <span class="marquee-item">Family-Owned</span>
+    <span class="marquee-item">Copenhagen</span>
+    <span class="marquee-item">Commercial Equipment</span>
+    <span class="marquee-item">Trappevask</span>
+    <span class="marquee-item">Ejendomsservice</span>
+    <span class="marquee-item">Stairwell Cleaning</span>
+    <span class="marquee-item">Property Services</span>
+    <span class="marquee-item">AMU Certified</span>
+    <span class="marquee-item">Family-Owned</span>
+    <span class="marquee-item">Copenhagen</span>
+    <span class="marquee-item">Commercial Equipment</span>
+  </div>
+</div>
+
+<!-- ─── Video scroll ──────────────────────────────────────── -->
+<section id="video-scroll">
+  <div class="vs-sticky">
+    <video id="scrub-video" muted playsinline preload="auto">
+      <source src="videos/mop_cleaning_scrub.mp4" type="video/mp4">
+    </video>
+    <div class="vs-overlay"></div>
+    <div class="vs-texts">
+      <div class="vs-text" id="vs-1">
+        <h2>Every floor type,<br><em>cleaned correctly.</em></h2>
+        <p>Stone, tile, or wood — we use the right product and method for each surface, every time.</p>
+      </div>
+      <div class="vs-text" id="vs-2">
+        <h2>Fresh microfiber,<br><em>every visit.</em></h2>
+        <p>Between 6 and 16 clean mop pads per visit. Dirt removed — never just redistributed.</p>
+      </div>
+      <div class="vs-text" id="vs-3">
+        <h2>The same team,<br><em>every time.</em></h2>
+        <p>No sub-contractors, no surprises. Your property is always in familiar, certified hands.</p>
+      </div>
+    </div>
+    <div class="vs-dots" aria-hidden="true">
+      <div class="vs-dot" id="vd-0"></div>
+      <div class="vs-dot" id="vd-1"></div>
+      <div class="vs-dot" id="vd-2"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Services scroll strip ────────────────────────────── -->
+<section id="svc-scroll">
+  <div class="svc-scroll-head">
+    <h2 class="svc-scroll-title reveal">Everything<br>your property<br><em>needs.</em></h2>
+    <div style="display:flex;align-items:center;gap:16px;">
+      <div class="svc-hint reveal d1"><div class="svc-hint-dot"></div> Scroll to explore</div>
+      <div class="svc-scroll-arrows reveal d1">
+        <button class="svc-arrow" id="svcPrev" aria-label="Scroll left">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="svc-arrow" id="svcNext" aria-label="Scroll right">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M6 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="svc-track-outer">
+  <div class="svc-track-wrap" id="svcTrackWrap">
+    <div class="svc-track">
+      <div class="svc-col">
+        <div class="svc-col-video">
+          <video autoplay loop muted playsinline><source src="videos/vacuum_floor.mp4" type="video/mp4"></video>
+        </div>
+        <div class="svc-col-num">01</div>
+        <div class="svc-col-name">Vacuuming</div>
+        <div class="svc-col-danish">Støvsugning</div>
+        <p class="svc-col-desc">Full vacuuming of all stairwells, landings, and communal areas using commercial-grade equipment.</p>
+      </div>
+      <div class="svc-col">
+        <div class="svc-col-video">
+          <video autoplay loop muted playsinline><source src="videos/mop_floor.mov" type="video/mp4"></video>
+        </div>
+        <div class="svc-col-num">02</div>
+        <div class="svc-col-name">Floor Washing & Mopping</div>
+        <div class="svc-col-danish">Gulvvask</div>
+        <p class="svc-col-desc">Right product for each floor type — stone, tile, or wood. Fresh microfiber mop pads, always.</p>
+      </div>
+      <div class="svc-col">
+        <div class="svc-col-video">
+          <video id="disinfectVid" autoplay loop muted playsinline><source src="videos/disinfecting_handrail.mp4" type="video/mp4"></video>
+        </div>
+        <div class="svc-col-num">03</div>
+        <div class="svc-col-name">Surface Disinfection</div>
+        <div class="svc-col-danish">Desinfektion</div>
+        <p class="svc-col-desc">Systematic disinfection of handrails, switches, door handles, mailboxes, and all high-touch points.</p>
+      </div>
+      <div class="svc-col">
+        <div class="svc-col-video">
+          <!-- <video autoplay loop muted playsinline><source src="videos/property-inspection.mp4" type="video/mp4"></video> -->
+          <div class="svc-col-video-placeholder">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 3l14 9-14 9V3Z" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            <span>Video coming soon</span>
+          </div>
+        </div>
+        <div class="svc-col-num">04</div>
+        <div class="svc-col-name">Property Inspection</div>
+        <div class="svc-col-danish">Ejendomstilsyn</div>
+        <p class="svc-col-desc">Regular walkthroughs to identify and report issues, check bins, replace light bulbs, and maintain standards.</p>
+      </div>
+      <div class="svc-col">
+        <div class="svc-col-video">
+          <!-- <video autoplay loop muted playsinline><source src="videos/yards-outdoor.mp4" type="video/mp4"></video> -->
+          <div class="svc-col-video-placeholder">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 3l14 9-14 9V3Z" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            <span>Video coming soon</span>
+          </div>
+        </div>
+        <div class="svc-col-num">05</div>
+        <div class="svc-col-name">Yards & Outdoor Areas</div>
+        <div class="svc-col-danish">Udendørsarealer</div>
+        <p class="svc-col-desc">Yard cleaning, gate and sidewalk maintenance, weed removal, and seasonal outdoor upkeep.</p>
+      </div>
+      <div class="svc-col">
+        <div class="svc-col-video">
+          <!-- <video autoplay loop muted playsinline><source src="videos/laundry-rooms.mp4" type="video/mp4"></video> -->
+          <div class="svc-col-video-placeholder">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 3l14 9-14 9V3Z" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            <span>Video coming soon</span>
+          </div>
+        </div>
+        <div class="svc-col-num">06</div>
+        <div class="svc-col-name">Laundry & Drying Rooms</div>
+        <div class="svc-col-danish">Vaskerum</div>
+        <p class="svc-col-desc">Full cleaning including machine panels, drying lines, shelves, and all communal laundry equipment.</p>
+      </div>
+      <div class="svc-col">
+        <div class="svc-col-video">
+          <!-- <video autoplay loop muted playsinline><source src="videos/attics-basements.mp4" type="video/mp4"></video> -->
+          <div class="svc-col-video-placeholder">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 3l14 9-14 9V3Z" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            <span>Video coming soon</span>
+          </div>
+        </div>
+        <div class="svc-col-num">07</div>
+        <div class="svc-col-name">Attics & Basements</div>
+        <div class="svc-col-danish">Loft & Kælder</div>
+        <p class="svc-col-desc">Thorough cleaning of attic and basement common areas — the spaces that are easy to neglect but transform a property.</p>
+      </div>
+      <div class="svc-col">
+        <div class="svc-col-video">
+          <!-- <video autoplay loop muted playsinline><source src="videos/waste-bins.mp4" type="video/mp4"></video> -->
+          <div class="svc-col-video-placeholder">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 3l14 9-14 9V3Z" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            <span>Video coming soon</span>
+          </div>
+        </div>
+        <div class="svc-col-num">08</div>
+        <div class="svc-col-name">Waste & Bin Areas</div>
+        <div class="svc-col-danish">Affaldsskur</div>
+        <p class="svc-col-desc">Regular bin area checks, cleaning, and maintenance to keep waste zones presentable and hygienic.</p>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<!-- ─── Services ─────────────────────────────────────────── -->
+<section id="services">
+  <div class="svc-header">
+    <span class="s-label">What We Offer</span>
+    <h2 class="svc-h2 reveal">Two services,<br><em>delivered</em> completely.</h2>
+    <p class="svc-lead reveal d1">Everything your property needs — from stairwells to outdoor spaces. No cutting corners.</p>
+  </div>
+  <div class="svc-cards-grid">
+    <div class="svc-card reveal">
+      <svg class="svc-icon" viewBox="0 0 56 56" fill="none">
+        <rect width="56" height="56" rx="16" fill="rgba(123,47,190,0.10)"/>
+        <path d="M14 44V34h8v-8h8v-8h8v20H30v8H22v8H14v-8Z" stroke="#7B2FBE" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M14 44h28" stroke="#7B2FBE" stroke-width="1.8" stroke-linecap="round"/>
+      </svg>
+      <div class="svc-card-name">Stairwell Cleaning</div>
+      <div class="svc-card-danish">Trappevask</div>
+      <p class="svc-card-desc">Systematic, professional cleaning of every stairwell — from the top landing to the front door. The same certified routine, every visit.</p>
+      <ul class="svc-list">
+        <li class="svc-list-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#7B2FBE" stroke-width="1.4"/><path d="M5 8l2 2 4-4" stroke="#7B2FBE" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Stairwell vacuuming — all areas, landings &amp; edges
+        </li>
+        <li class="svc-list-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#7B2FBE" stroke-width="1.4"/><path d="M5 8l2 2 4-4" stroke="#7B2FBE" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Floor washing &amp; mopping — correct method per floor type
+        </li>
+        <li class="svc-list-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#7B2FBE" stroke-width="1.4"/><path d="M5 8l2 2 4-4" stroke="#7B2FBE" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Surface disinfection — handrails, handles &amp; switches
+        </li>
+      </ul>
+    </div>
+    <div class="svc-card reveal d1">
+      <svg class="svc-icon" viewBox="0 0 56 56" fill="none">
+        <rect width="56" height="56" rx="16" fill="rgba(123,47,190,0.10)"/>
+        <path d="M10 44V26l18-14 18 14v18H10Z" stroke="#7B2FBE" stroke-width="1.8" stroke-linejoin="round"/>
+        <path d="M21 44V34h7v10" stroke="#7B2FBE" stroke-width="1.8" stroke-linejoin="round"/>
+        <circle cx="28" cy="23" r="3" stroke="#7B2FBE" stroke-width="1.4"/>
+      </svg>
+      <div class="svc-card-name">Property Services</div>
+      <div class="svc-card-danish">Ejendomsservice</div>
+      <p class="svc-card-desc">Complete property maintenance beyond the stairwell — keeping every corner of your building in top condition year-round.</p>
+      <ul class="svc-list">
+        <li class="svc-list-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#7B2FBE" stroke-width="1.4"/><path d="M5 8l2 2 4-4" stroke="#7B2FBE" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Property inspection — identifying &amp; reporting issues
+        </li>
+        <li class="svc-list-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#7B2FBE" stroke-width="1.4"/><path d="M5 8l2 2 4-4" stroke="#7B2FBE" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Yards &amp; outdoor areas — gates, sidewalks &amp; weed removal
+        </li>
+        <li class="svc-list-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#7B2FBE" stroke-width="1.4"/><path d="M5 8l2 2 4-4" stroke="#7B2FBE" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Laundry &amp; drying rooms — incl. machine panels
+        </li>
+        <li class="svc-list-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#7B2FBE" stroke-width="1.4"/><path d="M5 8l2 2 4-4" stroke="#7B2FBE" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Attics &amp; basements — thorough common area cleaning
+        </li>
+        <li class="svc-list-item">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" stroke="#7B2FBE" stroke-width="1.4"/><path d="M5 8l2 2 4-4" stroke="#7B2FBE" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Waste &amp; bin areas — regular checks &amp; maintenance
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Why Choose Us ────────────────────────────────────── -->
+<section id="why-us">
+  <div class="why-inner">
+    <div class="why-header">
+      <span class="s-label">Why Purple Ren</span>
+      <h2 class="why-h2 reveal">What makes us <em>different</em></h2>
+      <p class="why-lead reveal d1">We combine owner-operated accountability with professional training, commercial equipment, and a systematic process that delivers consistent results — every single visit.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Z" stroke="#7B2FBE" stroke-width="1.5"/><path d="M8 12l3 3 5-5" stroke="#7B2FBE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="why-card-title">Family-Owned &amp; Owner-Operated</h3>
+        <p class="why-card-desc">Purple Ren is owned and operated by husband and wife. We do not send different employees from week to week — the owners are the people performing the work. This means the same familiar faces, direct communication, and personal responsibility on every visit.</p>
+      </div>
+      <div class="why-card reveal d1">
+        <div class="why-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#7B2FBE" stroke-width="1.5"/><path d="M8 12h8M8 8h8M8 16h5" stroke="#7B2FBE" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="why-card-title">AMU-Certified Cleaning Knowledge</h3>
+        <p class="why-card-desc">We have completed professional cleaning training from AMU — "Materialekendskab og rengøringskemi". We understand how to select the correct cleaning products and methods for different surfaces, floor types, and challenges. Cleaning effectively is not only about effort — it's about knowledge.</p>
+      </div>
+      <div class="why-card reveal d2">
+        <div class="why-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3v18M3 12h18" stroke="#7B2FBE" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="#7B2FBE" stroke-width="1.5"/></svg>
+        </div>
+        <h3 class="why-card-title">Systematic Cleaning Process</h3>
+        <p class="why-card-desc">Every property is cleaned according to established procedures designed to deliver reliable results and maintain high standards over time. Nothing is left to chance. Our structured approach means you receive the same quality on every visit — not just the first one.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2Z" stroke="#7B2FBE" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="why-card-title">Commercial-Grade Equipment</h3>
+        <p class="why-card-desc">We use powerful commercial machine cleaners and professional cleaning equipment designed specifically for property cleaning. This allows us to effectively remove dirt, dust, debris, and particles from common areas while maintaining a consistently high standard.</p>
+      </div>
+      <div class="why-card reveal d1">
+        <div class="why-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M7 16c0-2.76 2.24-5 5-5s5 2.24 5 5" stroke="#7B2FBE" stroke-width="1.5" stroke-linecap="round"/><path d="M12 11V3M9 6l3-3 3 3" stroke="#7B2FBE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 21h14" stroke="#7B2FBE" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="why-card-title">Fresh Microfiber Mop System</h3>
+        <p class="why-card-desc">We use 6 to 16 clean microfiber mop pads per stairwell visit, changed regularly between areas. This reduces cross-contamination and ensures dirt is removed from surfaces — never just redistributed. Each room is cleaned with a separate fresh pad.</p>
+      </div>
+      <div class="why-card reveal d2">
+        <div class="why-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#7B2FBE" stroke-width="1.5"/><path d="M12 7v5l3 3" stroke="#7B2FBE" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="why-card-title">Surface Cleaning, Not Dust Spreading</h3>
+        <p class="why-card-desc">Many cleaning routines rely on traditional dusting that simply moves dirt around. At Purple Ren, we prioritize thorough surface wiping — removing dust and dirt directly from horizontal surfaces, moldings, ledges, and high-touch points rather than spreading it elsewhere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Method ────────────────────────────────────────────── -->
+<section id="method">
+  <div class="method-inner">
+    <div class="meth-header">
+      <span class="s-label">Our Process</span>
+      <h2 class="meth-h2 reveal">The Purple Ren <em>Method</em></h2>
+      <p class="meth-lead reveal d1">Our approach is built on consistency, quality, and attention to detail. Every property follows the same six-step routine — nothing is left to chance.</p>
+    </div>
+    <div class="meth-steps">
+      <div class="meth-step reveal">
+        <div class="step-num">01</div>
+        <div class="step-title">Property Inspection</div>
+        <p class="step-body">Each visit begins with a visual walkthrough to identify areas requiring extra attention before cleaning starts. We assess the current condition and adjust our approach accordingly.</p>
+      </div>
+      <div class="meth-step reveal d1">
+        <div class="step-num">02</div>
+        <div class="step-title">Professional Vacuuming</div>
+        <p class="step-body">Dirt, dust, sand, and debris are removed using commercial-grade machine equipment. Every corner, edge, and landing is covered before any wet cleaning begins.</p>
+      </div>
+      <div class="meth-step reveal d2">
+        <div class="step-num">03</div>
+        <div class="step-title">Surface Disinfection &amp; Detail Cleaning</div>
+        <p class="step-body">Door handles, handrails, light switches, toilet flush buttons, faucets, machine control panels, and all high-touch points are cleaned and disinfected. Moldings, trims, ledges, lamps, and cobwebs are wiped and cleared.</p>
+      </div>
+      <div class="meth-step reveal">
+        <div class="step-num">04</div>
+        <div class="step-title">Systematic Floor Cleaning</div>
+        <p class="step-body">Floors are cleaned using methods and products matched to the floor type — stone, tile, or wood. The correct product protects the surface and delivers a better result than a generic approach.</p>
+      </div>
+      <div class="meth-step reveal d1">
+        <div class="step-num">05</div>
+        <div class="step-title">Fresh Microfiber Mop System</div>
+        <p class="step-body">Multiple clean microfiber mop pads are used throughout the property. Pads are changed between areas to maintain hygiene and ensure dirt is removed — not redistributed across the building.</p>
+      </div>
+      <div class="meth-step reveal d2">
+        <div class="step-num">06</div>
+        <div class="step-title">Final Quality Check</div>
+        <p class="step-body">Every visit concludes with a quality inspection to confirm our standards have been met. If anything isn't right, we address it before leaving. Consistent quality is our promise — not an aspiration.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── About ─────────────────────────────────────────────── -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-l reveal">
+      <span class="s-label">About Us</span>
+      <h2 class="about-h2">We treat every property<br><em>as if it were our own.</em></h2>
+      <p class="about-body">Purple Ren was founded with a simple goal: to provide reliable, professional, and high-quality cleaning and property services throughout Copenhagen.</p>
+      <p class="about-body">Our name combines the Danish word <em>ren</em> — meaning <em>clean</em> — with the colour purple, reflecting our commitment to quality, reliability, and attention to detail.</p>
+      <p class="about-body">As a family-owned business run by husband and wife, we believe that personal responsibility creates better results. Because we carry out the work ourselves, our customers receive direct communication, consistent quality, and a service partner who genuinely cares about the appearance and maintenance of their property.</p>
+      <div class="about-facts">
+        <div class="about-fact">
+          <span class="af-val">8+</span>
+          <span class="af-lbl">Years combined experience</span>
+        </div>
+        <div class="about-fact">
+          <span class="af-val">AMU</span>
+          <span class="af-lbl">Certified professionals</span>
+        </div>
+        <div class="about-fact">
+          <span class="af-val">Mon–Thu</span>
+          <span class="af-lbl">8:00–17:00</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-r reveal d2">
+      <div class="about-contact-card">
+        <p class="about-contact-label">Get in touch</p>
+        <a href="tel:+4571900878" class="about-contact-row">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 4a1 1 0 011-1h2.5l1 3-1.5 1.5a11 11 0 005.5 5.5L13 11.5l3 1V15a1 1 0 01-1 1C7.16 16 2 10.84 2 4a1 1 0 011-1Z" stroke="#7B2FBE" stroke-width="1.4" stroke-linejoin="round"/></svg>
+          +45 71 90 08 78
+        </a>
+        <a href="mailto:purpleren.dk@gmail.com" class="about-contact-row">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="4" width="14" height="10" rx="2" stroke="#7B2FBE" stroke-width="1.4"/><path d="M2 6l7 5 7-5" stroke="#7B2FBE" stroke-width="1.4" stroke-linecap="round"/></svg>
+          purpleren.dk@gmail.com
+        </a>
+        <div class="about-contact-row">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="#7B2FBE" stroke-width="1.4"/><path d="M9 5v4l2.5 2.5" stroke="#7B2FBE" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Mon, Tue &amp; Thu &middot; 8:00–17:00
+        </div>
+        <div class="about-contact-divider"></div>
+        <p class="about-contact-note">We typically reply within 24 hours. All quotes are free and non-binding.</p>
+        <a href="#quote" class="btn-p" style="display:inline-flex;margin-top:8px;font-size:14px;padding:12px 22px;">Request a Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Areas ──────────────────────────────────────────────── -->
+<section id="areas">
+  <div class="areas-inner">
+    <div class="areas-header">
+      <span class="s-label">Service Area</span>
+      <h2 class="areas-h2 reveal">Serving <em>Copenhagen</em></h2>
+      <p class="areas-lead reveal d1">We proudly serve housing associations, property managers, apartment buildings, and commercial properties throughout Copenhagen.</p>
+    </div>
+    <div class="areas-grid reveal d2">
+      <div class="area-tag">Østerbro</div>
+      <div class="area-tag">Nørrebro</div>
+      <div class="area-tag">Vesterbro</div>
+      <div class="area-tag">Frederiksberg</div>
+      <div class="area-tag">Amager</div>
+      <div class="area-tag">Valby</div>
+      <div class="area-tag">Vanløse</div>
+      <div class="area-tag">Brønshøj</div>
+      <div class="area-tag">Nordvest</div>
+      <div class="area-tag">City Centre</div>
+    </div>
+    <p class="areas-note reveal d3">Don't see your area? <a href="#quote">Get in touch</a> — we're always happy to discuss properties in surrounding areas.</p>
+  </div>
+</section>
+
+<!-- ─── FAQ ───────────────────────────────────────────────── -->
+<section id="faq">
+  <div class="faq-inner">
+    <div class="faq-header">
+      <span class="s-label">FAQ</span>
+      <h2 class="faq-h2 reveal">Frequently asked <em>questions</em></h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item reveal">
+        <summary class="faq-q">Who performs the cleaning?</summary>
+        <p class="faq-a">The owners of Purple Ren personally perform the work. We do not send employees from week to week — you always get the same people, with the same standards.</p>
+      </details>
+      <details class="faq-item reveal d1">
+        <summary class="faq-q">What areas do you serve?</summary>
+        <p class="faq-a">We serve housing associations, property managers, apartment buildings, and commercial properties throughout Copenhagen — including Østerbro, Nørrebro, Vesterbro, Frederiksberg, Amager, Valby, Vanløse, Brønshøj, Nordvest, and Copenhagen City Centre. If your area isn't listed, please get in touch.</p>
+      </details>
+      <details class="faq-item reveal d2">
+        <summary class="faq-q">Do you offer recurring service agreements?</summary>
+        <p class="faq-a">Yes. We offer weekly, bi-weekly, monthly, and customised service plans. Each plan is tailored to your property's specific needs and schedule.</p>
+      </details>
+      <details class="faq-item reveal">
+        <summary class="faq-q">What happens if Purple Ren is on holiday or unavailable?</summary>
+        <p class="faq-a">In the event of planned holidays or unforeseen circumstances such as illness, we work with carefully selected and trusted professional partners who share our commitment to quality. Whenever possible, customers are informed in advance of any planned absence.</p>
+      </details>
+      <details class="faq-item reveal d1">
+        <summary class="faq-q">What makes Purple Ren different?</summary>
+        <p class="faq-a">We combine owner-operated service, AMU-certified professional cleaning knowledge, systematic procedures, commercial-grade equipment, a fresh microfiber cleaning system, and strict quality control. The people responsible for the business are also the people performing the work — that creates a level of accountability and care you won't get from a large cleaning company.</p>
+      </details>
+      <details class="faq-item reveal d2">
+        <summary class="faq-q">Can I request a free quote?</summary>
+        <p class="faq-a">Absolutely. Use the form below or contact us directly by phone or email. All quotes are free and non-binding. We typically respond within 24 hours.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Quote form ────────────────────────────────────────── -->
+<section id="quote">
+  <div class="quote-inner">
+    <div class="quote-header">
+      <span class="s-label">Get a Free Quote</span>
+      <h2 class="quote-h2 reveal">Let's talk about<br><em>your property</em></h2>
+      <p class="quote-lead reveal d1">Fill in the form and we'll get back to you within 24 hours with a tailored quote.</p>
+    </div>
+    <div class="quote-card reveal d2">
+      <form action="https://formsubmit.co/athenafayequinlob@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New Quote Request — Purple Ren">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://purpleren.dk/thank-you">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f-name">Full Name *</label>
+            <input class="form-input" type="text" id="f-name" name="name" required placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label for="f-phone">Phone</label>
+            <input class="form-input" type="tel" id="f-phone" name="phone" placeholder="+45 00 00 00 00">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="f-email">Email Address *</label>
+          <input class="form-input" type="email" id="f-email" name="email" required placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label for="f-address">Property Address</label>
+          <input class="form-input" type="text" id="f-address" name="address" placeholder="Street, postcode, city">
+        </div>
+        <div class="form-group">
+          <label>Services Needed *</label>
+          <div class="form-checkboxes">
+            <p class="form-svc-group-label">Stairwell Cleaning (Trappevask)</p>
+            <label class="form-check-label">
+              <input type="checkbox" name="service" value="vacuuming"> Vacuuming staircases &amp; entrance areas
+            </label>
+            <label class="form-check-label">
+              <input type="checkbox" name="service" value="floor-washing"> Washing &amp; mopping floors
+            </label>
+            <label class="form-check-label">
+              <input type="checkbox" name="service" value="touch-points"> Cleaning &amp; disinfecting touch points — handrails, switches, door handles
+            </label>
+            <label class="form-check-label">
+              <input type="checkbox" name="service" value="surface-cleaning"> Surface cleaning — mailboxes, moldings, window frames &amp; sills
+            </label>
+            <label class="form-check-label">
+              <input type="checkbox" name="service" value="cobwebs"> Cobweb removal
+            </label>
+            <p class="form-svc-group-label">Property Services (Ejendomsservice)</p>
+            <label class="form-check-label">
+              <input type="checkbox" name="service" value="property-inspection"> Property inspections &amp; maintenance reporting
+            </label>
+            <label class="form-check-label">
+              <input type="checkbox" name="service" value="waste-bins"> Waste &amp; bin area checks
+            </label>
+            <label class="form-check-label">
+              <input type="checkbox" name="service" value="light-bulbs"> Light bulb replacement
+            </label>
+            <label class="form-check-label">
+              <input type="checkbox" name="service" value="yards-outdoor"> Yards, gates &amp; sidewalk maintenance — incl. weed removal
+            </label>
+            <label class="form-check-label">
+              <input type="checkbox" name="service" value="laundry-rooms"> Laundry &amp; drying rooms — incl. machine panels
+            </label>
+            <label class="form-check-label">
+              <input type="checkbox" name="service" value="attics-basements"> Attics &amp; basements
+            </label>
+            <label class="form-check-label">
+              <input type="checkbox" name="service" value="yard-toilet"> Yard toilet cleaning
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="f-details">Property Details</label>
+          <textarea class="form-textarea" id="f-details" name="details" placeholder="How many stairs / floors per staircase? What type of flooring? Any specific areas or requirements?"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="f-time">Best Time to Contact You</label>
+          <input class="form-input" type="text" id="f-time" name="contactTime" placeholder="e.g. Weekday mornings, after 14:00">
+        </div>
+        <button type="submit" class="form-submit">Send Quote Request</button>
+        <p class="form-note">Free &amp; non-binding &middot; We reply within 24 hours &middot; CVR 45507548</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ────────────────────────────────────────────── -->
+<footer>
+  <div class="foot-col">
+    <img class="foot-logo-img" src="PURPLE%20REN%20Logos/purple-ren-nav.svg" alt="Purple Ren">
+    <p class="foot-copy">&copy; 2024 Purple Ren — Rengøring og Ejendomsservice</p>
+    <p class="foot-cvr">CVR 45507548 &middot; Copenhagen, Denmark</p>
+  </div>
+  <div class="foot-col">
+    <p class="foot-col-label">Contact</p>
+    <a href="tel:+4571900878" class="foot-contact-link">+45 71 90 08 78</a>
+    <a href="mailto:purpleren.dk@gmail.com" class="foot-contact-link">purpleren.dk@gmail.com</a>
+  </div>
+  <div class="foot-col">
+    <p class="foot-col-label">Hours</p>
+    <p class="foot-hours">Mon, Tue &amp; Thu</p>
+    <p class="foot-hours">8:00 – 17:00</p>
+  </div>
+  <nav class="foot-col">
+    <p class="foot-col-label">Navigate</p>
+    <a href="#services" class="foot-nav-link">Services</a>
+    <a href="#why-us" class="foot-nav-link">Why Us</a>
+    <a href="#method" class="foot-nav-link">Our Method</a>
+    <a href="#areas" class="foot-nav-link">Areas</a>
+    <a href="#faq" class="foot-nav-link">FAQ</a>
+    <a href="#quote" class="foot-nav-link">Get a Quote</a>
+  </nav>
+</footer>
+
+<script>
+// ── Services strip drag-to-scroll + arrow buttons ────────────
+(function () {
+  const wrap = document.getElementById('svcTrackWrap');
+  if (!wrap) return;
+  // Drag
+  let isDown = false, startX, scrollLeft;
+  wrap.addEventListener('mousedown', e => {
+    isDown = true; wrap.classList.add('dragging');
+    startX = e.pageX - wrap.offsetLeft; scrollLeft = wrap.scrollLeft;
+  });
+  document.addEventListener('mouseup', () => { isDown = false; wrap.classList.remove('dragging'); });
+  wrap.addEventListener('mouseleave', () => { isDown = false; wrap.classList.remove('dragging'); });
+  wrap.addEventListener('mousemove', e => {
+    if (!isDown) return; e.preventDefault();
+    wrap.scrollLeft = scrollLeft - (e.pageX - wrap.offsetLeft - startX) * 1.4;
+  });
+  // Arrow buttons
+  const step = 320;
+  document.getElementById('svcPrev')?.addEventListener('click', () => {
+    wrap.scrollBy({ left: -step, behavior: 'smooth' });
+  });
+  document.getElementById('svcNext')?.addEventListener('click', () => {
+    wrap.scrollBy({ left: step, behavior: 'smooth' });
+  });
+}());
+
+// ── Reveal on scroll ──────────────────────────────────────────
+(function () {
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(el => io.observe(el));
+}());
+
+// ── Hero exit parallax ────────────────────────────────────────
+(function () {
+  const hero  = document.getElementById('hero');
+  const parts = hero.querySelectorAll('.hero-l, .hero-r, .hero-bottom');
+  let raf = false;
+  function run() {
+    raf = false;
+    const sy = window.scrollY, heroH = hero.offsetHeight;
+    if (sy > heroH) return;
+    const p = Math.min(1, sy / (heroH * 0.55));
+    parts.forEach(el => {
+      el.style.opacity   = 1 - p;
+      el.style.transform = `translateY(${-p * 48}px)`;
+    });
+  }
+  window.addEventListener('scroll', () => { if (!raf) { raf = true; requestAnimationFrame(run); } }, { passive: true });
+}());
+
+// ── Video scroll scrubbing ────────────────────────────────────
+(function () {
+  const section = document.getElementById('video-scroll');
+  const video   = document.getElementById('scrub-video');
+  const texts   = ['vs-1', 'vs-2', 'vs-3'].map(id => document.getElementById(id));
+  const dots    = ['vd-0', 'vd-1', 'vd-2'].map(id => document.getElementById(id));
+
+  video.preload = 'auto';
+  video.load();
+
+  // Decode full video into memory on first load
+  video.addEventListener('canplaythrough', () => {
+    video.play().then(() => { video.pause(); video.currentTime = 0; }).catch(() => {});
+  }, { once: true });
+
+  const N = texts.length;
+  let targetP = 0, renderP = 0;
+
+  function calcP() {
+    const rect  = section.getBoundingClientRect();
+    const total = section.offsetHeight - window.innerHeight;
+    return Math.max(0, Math.min(1, -rect.top / total));
+  }
+
+  function updateTexts(p) {
+    const chunk = 1 / N, fade = 0.12;
+    texts.forEach((el, i) => {
+      const s = i * chunk, e = s + chunk;
+      let op = 0, ty = 18;
+      if (p >= s && p <= e) {
+        const inR  = (p - s) / (chunk * fade);
+        const outR = (e - p) / (chunk * fade);
+        const raw  = (i === N - 1) ? Math.min(1, inR) : Math.min(1, inR, outR);
+        op = raw; ty = (1 - raw) * 18;
+      }
+      el.style.opacity   = op;
+      el.style.transform = `translateY(${ty}px)`;
+      if (dots[i]) dots[i].classList.toggle('active', p >= s && (i === N - 1 ? p <= 1 : p < e));
+    });
+  }
+
+  // Seeked-chain: never queue competing seeks
+  let seeking = false;
+  function doSeek(t) {
+    if (!isFinite(video.duration) || video.readyState < 2) return;
+    seeking = true;
+    video.currentTime = t;
+  }
+  video.addEventListener('seeked', () => {
+    seeking = false;
+    const desired = renderP * video.duration;
+    if (Math.abs(video.currentTime - desired) > 0.033) doSeek(desired);
+  });
+
+  let rafId = null;
+  function tick() {
+    rafId = null;
+    renderP += (targetP - renderP) * 0.12;
+    if (!seeking) {
+      const t = renderP * (video.duration || 0);
+      if (Math.abs(video.currentTime - t) > 0.02) doSeek(t);
+    }
+    updateTexts(renderP);
+    if (Math.abs(targetP - renderP) > 0.0003) rafId = requestAnimationFrame(tick);
+  }
+
+  window.addEventListener('scroll', () => {
+    targetP = calcP();
+    if (!rafId) rafId = requestAnimationFrame(tick);
+  }, { passive: true });
+
+  targetP = renderP = calcP();
+  updateTexts(renderP);
+}());
+
+// Slow down the surface disinfection video
+(function(){
+  var dv = document.getElementById('disinfectVid');
+  if (!dv) return;
+  function slow(){ dv.playbackRate = 0.8; }
+  dv.addEventListener('loadedmetadata', slow);
+  dv.addEventListener('play', slow);
+  slow();
+}());
+
+// Hero background video — smooth slow loop
+(function(){
+  var hv = document.getElementById('heroVid');
+  if (!hv) return;
+  function smooth(){ hv.playbackRate = 0.75; }
+  hv.addEventListener('loadedmetadata', smooth);
+  hv.addEventListener('play', smooth);
+  smooth();
+}());
+</script>
+</body>
+</html>
